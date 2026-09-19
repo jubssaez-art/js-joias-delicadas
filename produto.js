@@ -10,7 +10,7 @@
   const product = products.find(p => p.id === params.get('id'));
 
   if (!product) {
-    window.location.replace('index.html#produtos');
+    window.location.replace('joias.html#produtos');
     return;
   }
 

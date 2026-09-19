@@ -18,8 +18,8 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
-const HTMLS = ['index.html', 'produto.html', 'admin.html'];
-const ASSETS = ['data/produtos.js', 'data/catalogo-auto.js', 'script.js', 'produto.js', 'admin.js', 'style.css'];
+const HTMLS = ['index.html', 'joias.html', 'produto.html', 'admin.html'];
+const ASSETS = ['data/produtos.js', 'data/catalogo-auto.js', 'script.js', 'produto.js', 'admin.js', 'style.css', 'studio.css'];
 
 // Versão: argumento, SHA do commit no CI, ou o horário do deploy
 const versao = (process.argv[2] || process.env.GITHUB_SHA || String(Date.now())).slice(0, 8);

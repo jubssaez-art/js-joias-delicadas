@@ -23,6 +23,7 @@ const produtos = lerCatalogo().filter(p => !p.soldOut);
 
 const enderecos = [
   { loc: SITE, prioridade: '1.0' },
+  { loc: url('joias.html'), prioridade: '0.9' },
   ...produtos.map(p => ({
     loc: `${url('produto.html')}?id=${encodeURIComponent(p.id)}`,
     prioridade: '0.8'

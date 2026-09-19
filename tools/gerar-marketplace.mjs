@@ -126,7 +126,7 @@ ${fichas}
 <p class="vazio" id="vazio" hidden>Nenhuma peça com esse filtro.</p>
 
 <footer>
-  <span>Gerado do catálogo — <a href="./">voltar para a loja</a> · <a href="pinterest.html">fila do Pinterest</a></span>
+  <span>Gerado do catálogo — <a href="joias.html">voltar para a loja</a> · <a href="pinterest.html">fila do Pinterest</a></span>
   <span>Marcações ficam salvas neste navegador</span>
 </footer>
 </div>

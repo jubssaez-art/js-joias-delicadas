@@ -1,60 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="JS Joias Delicadas — Semi-joias banhadas a ouro e prata. Coleções delicadas e acessíveis para realçar seu brilho diário.">
+    <meta name="description" content="Studio Miura — espaço de beleza e estética em Fazenda Rio Grande – PR. Depilação a laser, cabelos, manicure e nail design, cílios e sobrancelhas em um só lugar.">
 
-    <!-- Verificação de propriedade do site — cole o content de cada canal quando
-         criar a conta. Enquanto o site estiver em *.github.io o Google e a Meta
-         tendem a recusar: github.io é sufixo público, não domínio próprio. -->
-    <!-- <meta name="google-site-verification" content="COLE_AQUI"> -->
-    <!-- <meta name="facebook-domain-verification" content="COLE_AQUI"> -->
-    <!-- <meta name="p:domain_verify" content="COLE_AQUI"> -->
-
-    <!-- Open Graph: é o que o WhatsApp, a OLX e o Pinterest leem ao receber o link -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="JS Joias Delicadas">
-    <meta property="og:title" content="JS Joias Delicadas — Semi-joias banhadas a ouro 18k">
-    <meta property="og:description" content="Peças antialérgicas com 1 ano de garantia e pronta-entrega. Frete grátis acima de R$ 150.">
+    <meta property="og:site_name" content="Studio Miura">
+    <meta property="og:title" content="Studio Miura — Beleza • Estética • Autocuidado">
+    <meta property="og:description" content="Depilação a laser, cabelos, unhas, cílios e sobrancelhas em um só lugar, em Fazenda Rio Grande – PR.">
     <meta property="og:url" content="https://solarissy.github.io/js-joias-delicadas/">
-    <meta property="og:image" content="https://solarissy.github.io/js-joias-delicadas/imagens/categoria-aneis.jpg">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://solarissy.github.io/js-joias-delicadas/">
-    <title>JS Joias Delicadas — Realce Seu Brilho Diário</title>
+    <meta name="theme-color" content="#3e171c">
+    <title>Studio Miura — Beleza, Estética e Autocuidado em Fazenda Rio Grande</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1331208122113813');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1331208122113813&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/studio/favicon.png">
+    <link rel="apple-touch-icon" href="img/studio/favicon.png">
+    <link rel="stylesheet" href="studio.css">
 </head>
 <body>
 
     <!-- ANNOUNCEMENT BAR -->
     <div class="announcement-bar" id="announcementBar">
         <div class="announcement-inner">
-            <span>✦ Frete Grátis acima de R$150</span>
+            <span>✦ Fazenda Rio Grande – PR</span>
+            <span class="sep hide-sm">|</span>
+            <span class="hide-sm">Beleza • Estética • Autocuidado</span>
             <span class="sep">|</span>
-            <span>1 Ano de Garantia em todas as peças</span>
-            <span class="sep">|</span>
-            <span>Pix com 5% de desconto ✦</span>
+            <span>Agende pelo WhatsApp ✦</span>
         </div>
         <button class="announcement-close" id="closeAnnouncement" aria-label="Fechar aviso">×</button>
     </div>
@@ -62,353 +37,259 @@
     <!-- NAVBAR -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
-            <button class="hamburger" id="hamburger" aria-label="Menu">
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
                 <span></span><span></span><span></span>
             </button>
             <div class="brand">
                 <a href="#home" class="brand-link">
-                    <span class="brand-star">✦</span>
-                    <div class="brand-text">
-                        <span class="brand-name">JS Joias</span>
-                        <span class="brand-sub">Delicadas</span>
-                    </div>
+                    <img src="img/studio/logo-miura.png" alt="Studio Miura" class="brand-logo" width="906" height="286">
                 </a>
             </div>
-            <nav class="nav-menu" id="navMenu">
-                <a href="#colecoes" class="nav-link">Coleções</a>
-                <a href="#produtos" class="nav-link">Produtos</a>
-                <a href="#noivas" class="nav-link">Noivas</a>
-                <a href="#fidelidade" class="nav-link">Fidelidade</a>
+            <nav class="nav-menu" aria-label="Principal">
+                <a href="#studio" class="nav-link">O Studio</a>
+                <a href="#servicos" class="nav-link">Serviços</a>
+                <a href="#laser" class="nav-link">Depilação a Laser</a>
                 <a href="#contato" class="nav-link">Contato</a>
             </nav>
             <div class="nav-actions">
-                <button class="icon-btn" aria-label="Buscar" id="searchBtn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                </button>
-                <button class="icon-btn cart-btn" aria-label="Sacola" id="cartBtn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                    <span class="cart-count" id="cartCount">0</span>
-                </button>
-            </div>
-        </div>
-        <div class="search-overlay" id="searchOverlay">
-            <div class="search-container">
-                <input type="text" placeholder="Buscar joias…" class="search-input" id="searchInput">
-                <button class="search-close" id="searchClose">×</button>
+                <a href="joias.html" class="btn-joias">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20"/></svg>
+                    <span><span class="label-long">Catálogo de </span>Joias</span>
+                </a>
             </div>
         </div>
     </header>
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu-overlay" id="mobileOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-close" id="mobileClose">×</button>
-        <div class="mobile-brand"><span class="brand-star">✦</span> JS Joias Delicadas</div>
-        <nav class="mobile-nav">
-            <a href="#colecoes" class="mobile-nav-link">Coleções</a>
-            <a href="#produtos" class="mobile-nav-link">Produtos</a>
-            <a href="#noivas" class="mobile-nav-link">Noivas</a>
-            <a href="#fidelidade" class="mobile-nav-link">Fidelidade</a>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="mobile-close" id="mobileClose" aria-label="Fechar menu">×</button>
+        <div class="mobile-brand"><img src="img/studio/logo-miura.png" alt="Studio Miura" width="906" height="286"></div>
+        <nav class="mobile-nav" aria-label="Menu">
+            <a href="#studio" class="mobile-nav-link">O Studio</a>
+            <a href="#servicos" class="mobile-nav-link">Serviços</a>
+            <a href="#laser" class="mobile-nav-link">Depilação a Laser</a>
             <a href="#contato" class="mobile-nav-link">Contato</a>
         </nav>
-        <a href="https://wa.me/5541989043923" target="_blank" class="mobile-whatsapp">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            Falar no WhatsApp
+        <a href="joias.html" class="btn btn-outline">✦ Catálogo de Joias</a>
+        <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Miura." target="_blank" rel="noopener" class="mobile-whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Agendar no WhatsApp
         </a>
     </div>
 
+    <main>
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="hero-bg">
-            <img src="img/hero_banner.png" alt="JS Joias Delicadas — semi-joias douradas com pérolas" class="hero-img" id="heroImg">
+            <img src="img/hero_banner.png" alt="" class="hero-img">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
-            <p class="hero-eyebrow">✦ Coleção 2026 ✦</p>
+            <p class="hero-eyebrow">Beleza • Estética • Autocuidado</p>
             <h1 class="hero-title">
-                <span class="hero-title-line1">Realce Seu</span>
-                <em class="hero-title-line2">Brilho Diário</em>
+                <img src="img/studio/logo-miura-creme.png" alt="Studio Miura" class="hero-logo" width="906" height="286">
             </h1>
-            <p class="hero-subtitle">Semi-joias banhadas a ouro e prata. Delicadas, acessíveis e feitas para durar.</p>
+            <p class="hero-subtitle">Um centro integrado de beleza e estética em Fazenda Rio Grande – PR. Cabelos, unhas, cílios, sobrancelhas e depilação a laser no mesmo espaço.</p>
             <div class="hero-ctas">
-                <a href="#produtos" class="btn btn-gold">Ver Coleção</a>
-                <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Gostaria%20de%20ver%20as%20pe%C3%A7as%20dispon%C3%ADveis%20%F0%9F%92%9B" target="_blank" class="btn btn-outline">Falar com a JS</a>
+                <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Miura." target="_blank" rel="noopener" class="btn btn-marsala">Agendar Horário</a>
+                <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
             </div>
             <div class="hero-badges">
-                <div class="badge"><span class="badge-icon">✦</span><span>Banhado a Ouro 18k</span></div>
-                <div class="badge"><span class="badge-icon">✦</span><span>Antialérgico</span></div>
-                <div class="badge"><span class="badge-icon">✦</span><span>1 Ano de Garantia</span></div>
+                <div class="badge"><span class="badge-icon">✦</span><span>Tudo em um só lugar</span></div>
+                <div class="badge"><span class="badge-icon">✦</span><span>Tecnologia &amp; bem-estar</span></div>
+                <div class="badge"><span class="badge-icon">✦</span><span>Atendimento personalizado</span></div>
             </div>
         </div>
-        <div class="hero-scroll"><div class="scroll-line"></div><span>Deslize</span></div>
+        <div class="hero-scroll" aria-hidden="true"><div class="scroll-line"></div><span>Deslize</span></div>
     </section>
 
-    <!-- CATEGORIES -->
-    <section class="categories-strip" id="colecoes">
+    <!-- CONCEITO -->
+    <section class="concept-section" id="studio">
         <div class="container">
-            <div class="section-label">Nossas Coleções</div>
-            <h2 class="section-title">Encontre a Peça Perfeita</h2>
-            <div class="categories-grid">
-                <a href="#produtos" class="cat-card" data-filter="brincos">
-                    <div class="cat-img-wrap">
-                        <img src="imagens/categoria-brincos.jpg" alt="Brinco argola com coração de zircônia banhado a ouro">
-                        <div class="cat-overlay"><span>Ver Brincos →</span></div>
-                    </div>
-                    <div class="cat-info"><h3>Brincos</h3><p data-count="brincos">8 peças</p></div>
-                </a>
-                <a href="#produtos" class="cat-card" data-filter="pulseiras">
-                    <div class="cat-img-wrap">
-                        <img src="imagens/categoria-pulseiras.jpg" alt="Pulseira de corrente dourada com corações entrelaçados cravejados">
-                        <div class="cat-overlay"><span>Ver Pulseiras →</span></div>
-                    </div>
-                    <div class="cat-info"><h3>Pulseiras</h3><p data-count="pulseiras">6 peças</p></div>
-                </a>
-                <a href="#produtos" class="cat-card" data-filter="aneis">
-                    <div class="cat-img-wrap">
-                        <img src="imagens/categoria-aneis.jpg" alt="Anel dourado trançado cravejado de zircônias">
-                        <div class="cat-overlay"><span>Ver Anéis →</span></div>
-                    </div>
-                    <div class="cat-info"><h3>Anéis</h3><p data-count="aneis">2 peças</p></div>
-                </a>
-                <a href="#produtos" class="cat-card" data-filter="colares">
-                    <div class="cat-img-wrap">
-                        <img src="imagens/categoria-colares.jpg" alt="Colar dourado com pingente de zircônia solitária">
-                        <div class="cat-overlay"><span>Ver Colares →</span></div>
-                    </div>
-                    <div class="cat-info"><h3>Colares</h3><p data-count="colares">1 peça</p></div>
-                </a>
+            <div class="concept-grid">
+                <div class="concept-text reveal">
+                    <div class="section-label">Conceito do Studio</div>
+                    <h2 class="section-title">Mais que um salão,<br><em>uma experiência completa</em></h2>
+                    <p>O <strong>Studio Miura</strong> é um espaço de beleza e estética localizado em <strong>Fazenda Rio Grande – PR</strong>, criado para reunir diferentes serviços de cuidados pessoais em um único ambiente.</p>
+                    <p>Mais do que um salão de beleza tradicional, o Studio funciona como um <strong>centro integrado de beleza e estética</strong>: cabelos, unhas, cílios, depilação a laser, massagens e outros cuidados no mesmo lugar.</p>
+                    <p>Você pode vir para um procedimento específico ou combinar diferentes serviços na mesma visita, criando uma rotina de autocuidado mais prática.</p>
+                </div>
+                <div class="concept-card reveal">
+                    <p class="concept-card-label">O que o Studio une</p>
+                    <ul class="formula">
+                        <li><span class="plus"></span>Beleza</li>
+                        <li><span class="plus">+</span>Estética</li>
+                        <li><span class="plus">+</span>Tecnologia</li>
+                        <li><span class="plus">+</span>Bem-estar</li>
+                        <li><span class="plus">+</span>Atendimento personalizado</li>
+                    </ul>
+                    <p class="concept-card-foot">Cada cliente é atendida a partir de uma conversa sobre o que deseja, sem pacote pronto.</p>
+                </div>
             </div>
-            <a href="#noivas" class="cat-banner">
-                <img src="img/category_noivas.png" alt="Coleção Noivas — semi-joias para casamento" class="cat-banner-img">
-                <div class="cat-banner-content">
-                    <span class="cat-banner-badge">✦ Especial</span>
-                    <h3>Noivas & Casamentos</h3>
-                    <p>Tiaras, conjuntos para damas e kits personalizados sob encomenda</p>
-                    <span class="cat-banner-cta">Conhecer a coleção →</span>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="services-section" id="servicos">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="section-label">Nossos Serviços</div>
+                <h2 class="section-title">Cuidado da cabeça aos pés</h2>
+                <p class="section-subtitle">Serviços rápidos de manutenção e procedimentos completos de transformação, lado a lado.</p>
+            </div>
+            <div class="services-grid">
+
+                <article class="service-card reveal">
+                    <span class="service-num">01</span>
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+                    <h3>Depilação a Laser</h3>
+                    <p>Tecnologia de luz direcionada ao pigmento do pelo, em sessões progressivas conforme a região, a pele e a resposta de cada cliente.</p>
+                    <ul class="service-tags">
+                        <li>Avaliação individual</li><li>Sessões avulsas</li><li>Pacotes</li>
+                    </ul>
+                    <a href="#laser" class="service-link">Ver áreas atendidas →</a>
+                </article>
+
+                <article class="service-card reveal">
+                    <span class="service-num">02</span>
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div>
+                    <h3>Cabelos</h3>
+                    <p>Transformação, manutenção e tratamento dos fios.</p>
+                    <ul class="service-tags">
+                        <li>Corte feminino</li><li>Escova</li><li>Finalização</li><li>Penteados</li><li>Hidratação</li><li>Nutrição</li><li>Reconstrução</li><li>Terapia capilar</li><li>Botox capilar</li><li>Coloração</li><li>Tonalização</li><li>Mechas e iluminação</li><li>Recuperação dos fios</li><li>Mega hair</li><li>Cabelo para eventos</li>
+                    </ul>
+                    <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20servi%C3%A7o%20de%20cabelo." target="_blank" rel="noopener" class="service-link">Agendar →</a>
+                </article>
+
+                <article class="service-card reveal">
+                    <span class="service-num">03</span>
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="10" width="10" height="12" rx="2"/><path d="M9.5 10V6.5h5V10"/><path d="M11 6.5V2h2v4.5"/></svg></div>
+                    <h3>Manicure &amp; Nail Design</h3>
+                    <p>Cuidados completos para mãos e pés, com profissionais parceiras especializadas.</p>
+                    <ul class="service-tags">
+                        <li>Manicure</li><li>Pedicure</li><li>Esmaltação tradicional</li><li>Esmaltação em gel</li><li>Spa dos pés</li><li>Cutículas</li><li>Nail art</li><li>Alongamento</li><li>Manutenção</li><li>Remoção</li>
+                    </ul>
+                    <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20manicure%20%2F%20nail%20design." target="_blank" rel="noopener" class="service-link">Agendar →</a>
+                </article>
+
+                <article class="service-card reveal">
+                    <span class="service-num">04</span>
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 13s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 13 2 13z"/><circle cx="12" cy="13" r="2.5"/><path d="M12 7V3.5M7 8.2 5.3 5.5M17 8.2l1.7-2.7"/></svg></div>
+                    <h3>Cílios</h3>
+                    <p>Lash design para valorizar o olhar, a partir de uma análise do formato dos olhos e do efeito que você deseja.</p>
+                    <ul class="service-tags">
+                        <li>Extensão de cílios</li><li>Fio a fio</li><li>Volume brasileiro</li><li>Volume tecnológico</li><li>Técnicas de volume</li><li>Manutenção</li><li>Remoção</li><li>Lash lifting</li>
+                    </ul>
+                    <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20c%C3%ADlios." target="_blank" rel="noopener" class="service-link">Agendar →</a>
+                </article>
+
+                <article class="service-card reveal">
+                    <span class="service-num">05</span>
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 11c3-4 8-5.5 13-4.5 2 .4 3.6 1.3 5 2.5"/><path d="M4 17s3-3 8-3 8 3 8 3"/></svg></div>
+                    <h3>Sobrancelhas</h3>
+                    <p>Um desenho que preserva as características naturais e combina com o seu rosto.</p>
+                    <ul class="service-tags">
+                        <li>Design de sobrancelhas</li><li>Design com henna</li><li>Coloração</li><li>Brow lamination</li><li>Correção e alinhamento</li>
+                    </ul>
+                    <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20sobrancelhas." target="_blank" rel="noopener" class="service-link">Agendar →</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPILAÇÃO A LASER -->
+    <section class="laser-section" id="laser">
+        <div class="container">
+            <div class="laser-inner">
+                <div class="reveal">
+                    <div class="section-label light">Estética</div>
+                    <h2 class="laser-title">Depilação<br><em>a Laser</em></h2>
+                    <p class="laser-text">O tratamento emite luz direcionada ao pigmento presente no pelo. Essa luz gera calor e atinge as estruturas ligadas ao crescimento do fio.</p>
+                    <p class="laser-text">Os resultados são progressivos. O número de sessões depende da região tratada, das características da pele e dos pelos e da resposta de cada cliente.</p>
+                    <ol class="laser-steps">
+                        <li><span class="step-n">1</span><div><strong>Avaliação individual</strong><span class="desc">Análise da pele, dos pelos, do seu histórico e de possíveis contraindicações.</span></div></li>
+                        <li><span class="step-n">2</span><div><strong>Plano de sessões</strong><span class="desc">Sessões avulsas ou pacotes, conforme a área e o seu objetivo.</span></div></li>
+                        <li><span class="step-n">3</span><div><strong>Acompanhamento</strong><span class="desc">Cada sessão é ajustada à resposta da sua pele.</span></div></li>
+                    </ol>
+                    <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20depila%C3%A7%C3%A3o%20a%20laser." target="_blank" rel="noopener" class="btn btn-cream">Agendar Avaliação</a>
+                </div>
+                <div class="laser-areas reveal">
+                    <h3>Áreas de atendimento</h3>
+                    <p>A lista final é definida na avaliação.</p>
+                    <ul class="areas-grid">
+                        <li>Axilas</li><li>Virilha</li><li>Pernas</li>
+                        <li>Meia perna</li><li>Braços</li><li>Antebraços</li>
+                        <li>Buço</li><li>Queixo</li><li>Rosto</li>
+                        <li>Linha abdominal</li><li>Abdômen</li><li>Costas</li>
+                        <li>Tórax</li><li>Glúteos</li><li>Outras regiões</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOIAS: botão para o catálogo -->
+    <section class="joias-section" id="joias">
+        <div class="container">
+            <a href="joias.html" class="joias-banner reveal">
+                <div class="joias-images">
+                    <div><img src="imagens/categoria-brincos.jpg" alt="Brinco argola dourado com coração de zircônia" loading="lazy"></div>
+                    <div><img src="imagens/categoria-aneis.jpg" alt="Anel dourado trançado cravejado" loading="lazy"></div>
+                    <div><img src="imagens/categoria-pulseiras.jpg" alt="Pulseira dourada com corações entrelaçados" loading="lazy"></div>
+                    <div><img src="imagens/categoria-colares.jpg" alt="Colar dourado com pingente solitário" loading="lazy"></div>
+                </div>
+                <div class="joias-content">
+                    <div class="section-label">Também no Studio</div>
+                    <h2 class="section-title">Catálogo de <em>Joias</em></h2>
+                    <p>Para completar o seu momento de cuidado: semi-joias delicadas banhadas a ouro 18k e prata, com pronta-entrega.</p>
+                    <ul class="joias-perks">
+                        <li>Antialérgicas</li><li>1 ano de garantia</li><li>Peças únicas</li>
+                    </ul>
+                    <span class="btn btn-marsala">Ver Catálogo de Joias →</span>
                 </div>
             </a>
         </div>
     </section>
-
-    <!-- PRODUCTS -->
-    <section class="products-section" id="produtos">
-        <div class="container">
-            <div class="section-label">Pronta-Entrega</div>
-            <h2 class="section-title">Peças em Destaque</h2>
-            <p class="section-subtitle">Peças disponíveis agora para envio imediato</p>
-            <div class="filter-tabs" role="tablist">
-                <button class="filter-tab active" data-filter="todos" role="tab" id="tab-todos">Todos</button>
-                <button class="filter-tab" data-filter="brincos" role="tab" id="tab-brincos">Brincos</button>
-                <button class="filter-tab" data-filter="pulseiras" role="tab" id="tab-pulseiras">Pulseiras</button>
-                <button class="filter-tab" data-filter="aneis" role="tab" id="tab-aneis">Anéis</button>
-                <button class="filter-tab" data-filter="colares" role="tab" id="tab-colares">Colares</button>
-                <button class="filter-tab" data-filter="ouro" role="tab" id="tab-ouro">Banhados a Ouro</button>
-                <button class="filter-tab" data-filter="prata" role="tab" id="tab-prata">Banhados a Prata</button>
-                <button class="filter-tab" data-filter="perola" role="tab" id="tab-perola">Pérolas</button>
-                <button class="filter-tab" data-filter="kids" role="tab" id="tab-kids">Kids</button>
-            </div>
-            <div class="products-grid" id="productsGrid"></div>
-            <div class="custom-order-cta">
-                <div class="custom-order-inner">
-                    <span class="cta-ornament">✦</span>
-                    <h3>Não encontrou o que procura?</h3>
-                    <p>Entre em contato e faço uma <strong>encomenda personalizada</strong> especialmente para você.</p>
-                    <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20personalizado%20%F0%9F%92%9B" target="_blank" class="btn btn-gold">Pedir Encomenda</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BRAND STORY -->
-    <section class="brand-story" id="sobre">
-        <div class="brand-story-bg">
-            <div class="story-image-side">
-                <img src="img/category_noivas.png" alt="Coleção delicada JS Joias Delicadas" class="story-img">
-                <div class="story-quote-card">
-                    <p class="story-quote">"You don't age. <em>You upgrade.</em>"</p>
-                </div>
-            </div>
-            <div class="story-content-side">
-                <div class="section-label">Nossa História</div>
-                <h2 class="story-title">Cada peça carrega<br>um sentimento</h2>
-                <p class="story-text">A <strong>JS Joias Delicadas</strong> nasceu do amor pelo detalhe, pela delicadeza e pela crença de que toda mulher merece se sentir especial todos os dias.</p>
-                <p class="story-text">Trabalhamos com semi-joias banhadas a ouro 18k e ródio branco, todas com tecnologia antialérgica, garantia de 1 ano e preços que cabem no seu coração.</p>
-                <div class="story-stats">
-                    <div class="stat"><span class="stat-num">+500</span><span class="stat-label">Clientes felizes</span></div>
-                    <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Antialérgico</span></div>
-                    <div class="stat"><span class="stat-num">1 Ano</span><span class="stat-label">de Garantia</span></div>
-                </div>
-                <a href="https://wa.me/5541989043923" target="_blank" class="btn btn-gold">Conhecer mais ✦</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- NOIVAS -->
-    <section class="noivas-section" id="noivas">
-        <div class="container">
-            <div class="noivas-inner">
-                <div class="noivas-content">
-                    <div class="section-label light">Coleção Especial</div>
-                    <h2 class="noivas-title">Noivas &<br><em>Casamentos</em></h2>
-                    <p class="noivas-text">Peças delicadas e inesquecíveis para o dia mais especial da sua vida.</p>
-                    <ul class="noivas-features">
-                        <li><span class="feat-icon">✦</span> Tiaras com pérolas e cristais</li>
-                        <li><span class="feat-icon">✦</span> Conjuntos de brincos e colar para damas</li>
-                        <li><span class="feat-icon">✦</span> Pulseiras e anéis para cerimônia</li>
-                        <li><span class="feat-icon">✦</span> Kits personalizados para a noiva</li>
-                    </ul>
-                    <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20cole%C3%A7%C3%A3o%20Noivas%20%F0%9F%92%8D" target="_blank" class="btn btn-cream">Consultar Coleção</a>
-                </div>
-                <div class="noivas-image">
-                    <img src="img/category_noivas.png" alt="Coleção Noivas JS Joias Delicadas">
-                    <div class="noivas-ornament"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LOYALTY -->
-    <section class="loyalty-section" id="fidelidade">
-        <div class="container">
-            <div class="section-label">Programa Exclusivo</div>
-            <h2 class="section-title">Clube JS Joias</h2>
-            <p class="section-subtitle">Cada compra te aproxima de mais brilho</p>
-            <div class="loyalty-grid">
-                <div class="loyalty-card" id="loyalty-1">
-                    <div class="loyalty-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <h3>Acumule Pontos</h3>
-                    <p>R$ 1,00 em compras = <strong>1 ponto</strong></p>
-                    <div class="loyalty-highlight">Válidos por 12 meses</div>
-                </div>
-                <div class="loyalty-card" id="loyalty-2">
-                    <div class="loyalty-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
-                    </div>
-                    <h3>Troque por Desconto</h3>
-                    <p><strong>100 pontos</strong> = <strong>R$ 10,00</strong> de desconto</p>
-                    <div class="loyalty-highlight">Na próxima compra</div>
-                </div>
-                <div class="loyalty-card" id="loyalty-3">
-                    <div class="loyalty-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-                    </div>
-                    <h3>Indique e Ganhe</h3>
-                    <p>Indique uma amiga e <strong>ganhe um kit shampoo</strong> ou R$50 em créditos</p>
-                    <div class="loyalty-highlight">Programa de referência</div>
-                </div>
-            </div>
-            <div class="loyalty-cta">
-                <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Quero%20participar%20do%20programa%20de%20fidelidade%20JS%20Joias%20%F0%9F%92%9B" target="_blank" class="btn btn-gold">Quero Participar ✦</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- GUARANTEE -->
-    <section class="guarantee-section" id="garantia">
-        <div class="container">
-            <div class="guarantee-grid">
-                <div class="guarantee-item guarantee-unique" id="guar-0">
-                    <div class="guar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3L6.5 9 12 21M15 3l2.5 6L12 21"/></svg></div>
-                    <h3>Todas as Peças São Únicas <span class="unique-seal"><span class="unique-seal-star">✦</span>Peça Única</span></h3>
-                    <p>Cada modelo é garimpado em unidade única. Quando uma peça sai do estoque, ela não volta — a sua não vai estar em mais ninguém.</p>
-                </div>
-                <div class="guarantee-item" id="guar-1">
-                    <div class="guar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h3>1 Ano de Garantia</h3>
-                    <p>Todas as peças possuem garantia de 1 ano. Troca ou reparo mediante análise.</p>
-                </div>
-                <div class="guarantee-item" id="guar-2">
-                    <div class="guar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-                    <h3>Pagamento Seguro</h3>
-                    <p>Pix com 5% de desconto, cartão de crédito e débito. Checkout transparente.</p>
-                </div>
-                <div class="guarantee-item" id="guar-3">
-                    <div class="guar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-                    <h3>Embalagem Premium</h3>
-                    <p>Cada peça é entregue em embalagem especial com certificado de garantia.</p>
-                </div>
-                <div class="guarantee-item" id="guar-4">
-                    <div class="guar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                    <h3>Envio Rápido</h3>
-                    <p>Correios e transportadoras parceiras. Frete grátis acima de R$ 150.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INSTAGRAM -->
-    <section class="instagram-section" id="instagram">
-        <div class="container">
-            <div class="insta-header">
-                <div class="insta-brand">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    <span>@js_joiasdelicadas</span>
-                </div>
-                <a href="https://instagram.com/js_joiasdelicadas" target="_blank" class="btn btn-outline-sm">Seguir no Instagram</a>
-            </div>
-            <div class="insta-grid">
-                <a href="https://instagram.com/js_joiasdelicadas" target="_blank" class="insta-item" style="background-image: url('img/product_brincos.png')" aria-label="Ver no Instagram"><div class="insta-hover"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-                <a href="https://instagram.com/js_joiasdelicadas" target="_blank" class="insta-item" style="background-image: url('img/hero_banner.png')" aria-label="Ver no Instagram"><div class="insta-hover"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-                <a href="https://instagram.com/js_joiasdelicadas" target="_blank" class="insta-item" style="background-image: url('img/product_colares.png')" aria-label="Ver no Instagram"><div class="insta-hover"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-                <a href="https://instagram.com/js_joiasdelicadas" target="_blank" class="insta-item" style="background-image: url('img/category_noivas.png')" aria-label="Ver no Instagram"><div class="insta-hover"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-                <a href="https://instagram.com/js_joiasdelicadas" target="_blank" class="insta-item" style="background-image: url('img/product_prata.png')" aria-label="Ver no Instagram"><div class="insta-hover"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-                <a href="https://instagram.com/js_joiasdelicadas" target="_blank" class="insta-item" style="background-image: url('img/product_colares.png')" aria-label="Ver no Instagram"><div class="insta-hover"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer" id="contato">
         <div class="footer-top">
             <div class="container">
                 <div class="footer-grid">
-                    <div class="footer-brand-col">
+                    <div>
                         <div class="footer-brand">
-                            <span class="brand-star">✦</span>
-                            <div>
-                                <div class="footer-brand-name">JS Joias Delicadas</div>
-                                <div class="footer-brand-tagline">Realce Seu Brilho Diário</div>
-                            </div>
+                            <img src="img/studio/logo-miura-creme.png" alt="Studio Miura" class="footer-logo" width="906" height="286" loading="lazy">
+                            <div class="footer-brand-tagline">Beleza • Estética • Autocuidado</div>
                         </div>
-                        <p class="footer-desc">Semi-joias banhadas a ouro e prata, coleções delicadas com 1 ano de garantia.</p>
-                        <div class="footer-socials">
-                            <a href="https://instagram.com/js_joiasdelicadas" target="_blank" aria-label="Instagram" class="social-link">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                            </a>
-                            <a href="https://wa.me/5541989043923" target="_blank" aria-label="WhatsApp" class="social-link">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                            </a>
-                        </div>
+                        <p class="footer-desc">Centro integrado de beleza e estética em Fazenda Rio Grande – PR.</p>
                     </div>
-                    <div class="footer-col">
-                        <h4 class="footer-col-title">Coleções</h4>
+                    <div>
+                        <h4 class="footer-col-title">Serviços</h4>
                         <ul class="footer-links">
-                            <li><a href="#produtos">Brincos</a></li>
-                            <li><a href="#produtos">Anéis</a></li>
-                            <li><a href="#produtos">Pulseiras</a></li>
-                            <li><a href="#noivas">Noivas & Casamentos</a></li>
-                            <li><a href="#produtos">Kits Presente</a></li>
+                            <li><a href="#laser">Depilação a Laser</a></li>
+                            <li><a href="#servicos">Cabelos</a></li>
+                            <li><a href="#servicos">Manicure &amp; Nail Design</a></li>
+                            <li><a href="#servicos">Cílios</a></li>
+                            <li><a href="#servicos">Sobrancelhas</a></li>
                         </ul>
                     </div>
-                    <div class="footer-col">
-                        <h4 class="footer-col-title">Informações</h4>
+                    <div>
+                        <h4 class="footer-col-title">Studio</h4>
                         <ul class="footer-links">
-                            <li><a href="#sobre">Nossa História</a></li>
-                            <li><a href="#fidelidade">Programa de Fidelidade</a></li>
-                            <li><a href="#garantia">Garantia & Trocas</a></li>
-                            <li><a href="politica-de-devolucao.html">Política de Devolução</a></li>
+                            <li><a href="#studio">Conceito</a></li>
+                            <li><a href="joias.html">Catálogo de Joias</a></li>
                         </ul>
                     </div>
-                    <div class="footer-col">
+                    <div>
                         <h4 class="footer-col-title">Contato</h4>
                         <div class="footer-contact">
-                            <p>📱 WhatsApp</p>
-                            <a href="https://wa.me/5541989043923" target="_blank" class="footer-contact-link">(41) 98904-3923</a>
-                            <p>📸 Instagram</p>
-                            <a href="https://instagram.com/js_joiasdelicadas" target="_blank" class="footer-contact-link">@js_joiasdelicadas</a>
-                            <p class="footer-hours">⏰ Seg–Sex · 9h às 18h</p>
+                            <p>WhatsApp</p>
+                            <a href="https://wa.me/5541989043923" target="_blank" rel="noopener">(41) 98904-3923</a>
+                            <p>Endereço</p>
+                            <span>Fazenda Rio Grande – PR</span>
                         </div>
                     </div>
                 </div>
@@ -416,44 +297,60 @@
         </div>
         <div class="footer-bottom">
             <div class="container">
-                <p>© 2026 JS Joias Delicadas — Todos os direitos reservados</p>
-                <p>Feito com <span style="color:#c9a06c">♥</span> para realçar o seu brilho</p>
+                <p>© 2026 Studio Miura. Todos os direitos reservados.</p>
+                <p>Fazenda Rio Grande – PR</p>
             </div>
         </div>
     </footer>
 
-    <!-- FLOATING WHATSAPP -->
-    <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20ver%20as%20pe%C3%A7as%20dispon%C3%ADveis%20%F0%9F%92%9B" target="_blank" class="floating-whatsapp" id="floatingWA" aria-label="Contato via WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        <span class="wa-tooltip">Falar com a JS ✦</span>
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5541989043923?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Miura." target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Agendar pelo WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span class="wa-tooltip">Agendar no Studio ✦</span>
     </a>
 
-    <!-- CART SIDEBAR -->
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <aside class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h2>Minha Sacola</h2>
-            <button class="cart-close-btn" id="cartClose">×</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <div class="cart-empty" id="cartEmpty">
-                <div class="cart-empty-icon">✦</div>
-                <p>Sua sacola está vazia</p>
-                <p class="cart-empty-sub">Descubra nossas peças delicadas</p>
-            </div>
-        </div>
-        <div class="cart-footer" id="cartFooter" style="display:none">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span class="cart-total-value" id="cartTotal">R$ 0,00</span>
-            </div>
-            <p class="cart-pix-info">Pague com Pix e ganhe 5% de desconto 💛</p>
-            <a href="#" class="btn btn-gold" id="checkoutBtn" style="width:100%;text-align:center;display:block;box-sizing:border-box">Finalizar no WhatsApp</a>
-        </div>
-    </aside>
+    <script>
+    (function () {
+        document.documentElement.classList.remove('no-js');
 
-    <script src="data/produtos.js"></script>
-    <script src="data/catalogo-auto.js"></script>
-    <script src="script.js"></script>
+        var bar = document.getElementById('announcementBar');
+        document.getElementById('closeAnnouncement').addEventListener('click', function () {
+            bar.classList.add('hidden');
+        });
+
+        var navbar = document.getElementById('navbar');
+        function onScroll() { navbar.classList.toggle('scrolled', window.scrollY > 10); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        var menu = document.getElementById('mobileMenu');
+        var overlay = document.getElementById('mobileOverlay');
+        var burger = document.getElementById('hamburger');
+        function setMenu(open) {
+            menu.classList.toggle('open', open);
+            overlay.classList.toggle('active', open);
+            burger.setAttribute('aria-expanded', open);
+            menu.setAttribute('aria-hidden', !open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        }
+        burger.addEventListener('click', function () { setMenu(true); });
+        document.getElementById('mobileClose').addEventListener('click', function () { setMenu(false); });
+        overlay.addEventListener('click', function () { setMenu(false); });
+        menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+        var itens = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+            itens.forEach(function (el) { el.classList.add('visible'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entradas) {
+            entradas.forEach(function (en) {
+                if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        itens.forEach(function (el) { io.observe(el); });
+    })();
+    </script>
 </body>
 </html>
