@@ -460,6 +460,7 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
     carrossel();
+    quemSomos();
 
     var itens = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {
@@ -472,6 +473,31 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     itens.forEach(function (el) { io.observe(el); });
+  }
+
+  /* "Quem somos": o texto do Studio fica recolhido atrás de um botão.
+     Os links #studio (menu e rodapé) abrem o painel antes de rolar até ele. */
+  function quemSomos() {
+    var btn = $('aboutToggle'), painel = $('aboutPanel');
+    if (!btn || !painel) return;
+    function abrir(sim) {
+      btn.setAttribute('aria-expanded', sim);
+      btn.classList.toggle('is-open', sim);
+      if (sim) {
+        painel.hidden = false;
+        painel.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+        void painel.offsetWidth;
+        painel.classList.add('is-in');
+      } else {
+        painel.classList.remove('is-in');
+        painel.hidden = true;
+      }
+    }
+    btn.addEventListener('click', function () { abrir(painel.hidden); });
+    document.querySelectorAll('a[href="#studio"]').forEach(function (a) {
+      a.addEventListener('click', function () { abrir(true); });
+    });
+    if (location.hash === '#studio') abrir(true);
   }
 
   // Carrossel das áreas: a barra de progresso da aba ativa é uma animação CSS

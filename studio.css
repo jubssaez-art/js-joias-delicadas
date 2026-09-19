@@ -1620,3 +1620,37 @@ button:focus-visible {
 /* Quadro da área também oculto: fica só a barra de abas */
 #svcPanes { display: none; }
 #svcCatalog .cat-tabs { margin-bottom: 0; }
+
+/* ===========================
+   QUEM SOMOS (texto do Studio recolhido atrás de um botão)
+   =========================== */
+.concept-section { padding: 56px 0; }
+.about-toggle-wrap { display: flex; justify-content: center; }
+.about-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 30px 15px 24px;
+  border: 1px solid var(--marsala);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--marsala-deep);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.about-toggle:hover,
+.about-toggle.is-open { background: var(--marsala); color: var(--cream); box-shadow: 0 8px 26px rgba(140,59,67,0.3); }
+.about-toggle-spark { color: var(--marsala); transition: var(--transition); animation: starSpin 8s linear infinite; }
+.about-toggle:hover .about-toggle-spark,
+.about-toggle.is-open .about-toggle-spark { color: var(--antique); }
+.about-toggle-caret { font-size: 11px; transition: transform 0.35s ease; }
+.about-toggle.is-open .about-toggle-caret { transform: rotate(180deg); }
+.about-panel { margin-top: 48px; }
+.about-panel.is-in { animation: catEntra 0.55s ease both; }
