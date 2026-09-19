@@ -1613,3 +1613,7 @@ button:focus-visible {
 /* Sem o carrossel, o catálogo vem logo abaixo do título da seção de serviços */
 .svc-catalog { margin-top: 0; }
 .svc-catalog-head { display: none; }
+
+/* Catálogo de serviços: só as abas de filtro e o quadro da área, sem os cartões */
+.svc-grid { display: none; }
+.svc-pane-head { margin-bottom: 0; }
