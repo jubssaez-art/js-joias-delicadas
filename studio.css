@@ -1610,3 +1610,6 @@ button:focus-visible {
   .svc-ico svg { width: 30px; height: 30px; }
   .cat-empty { padding: 36px 22px; }
 }
+/* Sem o carrossel, o catálogo vem logo abaixo do título da seção de serviços */
+.svc-catalog { margin-top: 0; }
+.svc-catalog-head { display: none; }
