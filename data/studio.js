@@ -20,7 +20,24 @@ window.STUDIO = {
       "Atendimento personalizado"
     ]
   },
-  "conceito": {
+  "procedimentos": {
+    "visivel": true,
+    "titulo": "Nossos *procedimentos*",
+    "itens": [
+      { "foto": "img/studio/procedimentos/corte.jpg", "nome": "Corte feminino", "area": "Cabelos" },
+      { "foto": "img/studio/procedimentos/escova.jpg", "nome": "Escova & finalização", "area": "Cabelos" },
+      { "foto": "img/studio/procedimentos/tratamento-capilar.jpg", "nome": "Tratamento capilar", "area": "Cabelos" },
+      { "foto": "img/studio/procedimentos/manicure.jpg", "nome": "Manicure", "area": "Unhas" },
+      { "foto": "img/studio/procedimentos/esmaltacao.jpg", "nome": "Esmaltação em gel", "area": "Unhas" },
+      { "foto": "img/studio/procedimentos/nail-art.jpg", "nome": "Nail art", "area": "Unhas" },
+      { "foto": "img/studio/procedimentos/extensao-de-cilios.jpg", "nome": "Extensão de cílios", "area": "Cílios" },
+      { "foto": "img/studio/procedimentos/volume-de-cilios.jpg", "nome": "Volume de cílios", "area": "Cílios" },
+      { "foto": "img/studio/procedimentos/design-de-sobrancelhas.jpg", "nome": "Design de sobrancelhas", "area": "Sobrancelhas" },
+      { "foto": "img/studio/procedimentos/depilacao-a-laser.jpg", "nome": "Depilação a laser", "area": "Estética" },
+      { "foto": "img/studio/procedimentos/massagem-relaxante.jpg", "nome": "Massagem relaxante", "area": "Bem-estar" },
+      { "foto": "img/studio/procedimentos/pedras-quentes.jpg", "nome": "Pedras quentes", "area": "Bem-estar" }
+    ]
+  },  "conceito": {
     "titulo": "Mais que um salão, *uma experiência completa*",
     "textos": [
       "O **Studio Miura** é um espaço de beleza e estética localizado em **Fazenda Rio Grande – PR**, criado para reunir diferentes serviços de cuidados pessoais em um único ambiente.",

@@ -1654,3 +1654,99 @@ button:focus-visible {
 .about-toggle.is-open .about-toggle-caret { transform: rotate(180deg); }
 .about-panel { margin-top: 48px; }
 .about-panel.is-in { animation: catEntra 0.55s ease both; }
+/* ===========================
+   FAIXA DE PROCEDIMENTOS (fotos correndo)
+   =========================== */
+.proc-section { padding: 80px 0 64px; background: var(--cream); overflow: hidden; }
+.proc-head { text-align: center; margin-bottom: 36px; padding: 0 24px; }
+.proc-marquee {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  padding: 10px 0 18px;
+}
+.proc-marquee:focus-visible { outline: 2px solid var(--marsala); outline-offset: -2px; }
+.proc-marquee.is-dragging { cursor: grabbing; }
+/* bordas somem suavemente no creme */
+.proc-marquee::before,
+.proc-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  z-index: 2;
+  pointer-events: none;
+}
+.proc-marquee::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+.proc-marquee::after { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
+.proc-track { display: flex; gap: 18px; width: max-content; will-change: transform; padding-left: 18px; }
+.proc-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 250px;
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--marsala-deep);
+  box-shadow: 0 10px 30px rgba(62,23,28,0.14);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s ease;
+}
+.proc-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
+}
+/* véu marsala de baixo para cima, com o nome do procedimento */
+.proc-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(62,23,28,0.88) 0%, rgba(62,23,28,0.25) 45%, transparent 70%);
+  transition: opacity 0.45s ease;
+}
+.proc-info {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--cream);
+}
+.proc-area { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rose-dust); }
+.proc-name { font-family: var(--font-serif); font-size: 23px; line-height: 1.15; }
+.proc-cta {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cream-aged);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+}
+.proc-card:hover { transform: translateY(-8px) rotate(-0.6deg); box-shadow: 0 22px 44px rgba(62,23,28,0.28); }
+.proc-card:hover img { transform: scale(1.08); }
+.proc-card:hover .proc-cta { max-height: 20px; opacity: 1; margin-top: 6px; }
+.proc-marquee.is-paused .proc-card:not(:hover) img { filter: saturate(0.75) brightness(0.9); }
+.proc-marquee.is-dragging .proc-card { transform: none; }
+.proc-hint { text-align: center; margin-top: 10px; font-size: 11.5px; letter-spacing: 1.5px; color: var(--text-light); }
+
+@media (hover: none) {
+  .proc-cta { max-height: 20px; opacity: 1; margin-top: 6px; }
+}
+@media (max-width: 640px) {
+  .proc-section { padding: 60px 0 48px; }
+  .proc-card { width: 190px; border-radius: 12px; }
+  .proc-name { font-size: 19px; }
+  .proc-marquee::before, .proc-marquee::after { width: 40px; }
+}

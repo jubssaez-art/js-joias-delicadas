@@ -95,6 +95,26 @@
       if ($('conceptFoot')) { $('conceptFoot').innerHTML = fmt(c.rodape); $('conceptFoot').hidden = !c.rodape; }
     }
 
+    // Faixa de procedimentos (fotos)
+    var PR = S.procedimentos;
+    if ($('procedimentos')) {
+      var fotos = PR && PR.visivel !== false ? (PR.itens || []).filter(function (x) { return x && x.foto && x.nome; }) : [];
+      $('procedimentos').hidden = !fotos.length;
+      if (fotos.length) {
+        if (PR.titulo) $('procTitle').innerHTML = fmt(PR.titulo);
+        var cartao = function (x, copia) {
+          return '<a class="proc-card" href="' + wa(x.mensagem || ('Olá! Gostaria de agendar: ' + x.nome + '.')) + '" target="_blank" rel="noopener"' +
+            (copia ? ' aria-hidden="true" tabindex="-1"' : '') + '>' +
+            '<img src="' + esc(x.foto) + '" alt="' + (copia ? '' : esc(x.nome)) + '" decoding="async" draggable="false">' +
+            '<span class="proc-info"><span class="proc-area">' + esc(x.area || 'Studio Miura') + '</span>' +
+            '<span class="proc-name">' + esc(x.nome) + '</span><span class="proc-cta">Agendar →</span></span></a>';
+        };
+        // Duas cópias seguidas: quando a primeira sai inteira da tela, a faixa volta sem emenda
+        $('procTrack').innerHTML = fotos.map(function (x) { return cartao(x, false); }).join('') +
+          fotos.map(function (x) { return cartao(x, true); }).join('');
+      }
+    }
+
     // Cabeçalho dos serviços
     if (S.servicos) {
       if ($('servTitle')) $('servTitle').innerHTML = fmt(S.servicos.titulo);
@@ -461,6 +481,7 @@
 
     carrossel();
     quemSomos();
+    faixaProcedimentos();
 
     var itens = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {
@@ -473,6 +494,74 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     itens.forEach(function (el) { io.observe(el); });
+  }
+
+  /* Faixa de procedimentos: anda sozinha para a esquerda; pausa com o mouse
+     em cima ou fora da tela; dá para arrastar (dedo ou mouse) e usar as setas
+     do teclado. Arrastar não conta como clique na foto. */
+  function faixaProcedimentos() {
+    var box = $('procMarquee'), trilho = $('procTrack');
+    if (!box || !trilho || $('procedimentos').hidden || !trilho.children.length) return;
+    var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var VEL = 38;                 // px por segundo
+    var x = 0, meio = 0, ultimo = 0, emCima = false, visivel = true;
+    var arrastando = false, x0 = 0, xIni = 0, moveu = false, vel = 0, tPrev = 0, xPrev = 0;
+
+    function medir() { meio = trilho.scrollWidth / 2; }
+    function ajustar() {
+      if (meio <= 0) return;
+      while (x <= -meio) x += meio;
+      while (x > 0) x -= meio;
+      trilho.style.transform = 'translate3d(' + x + 'px,0,0)';
+    }
+    function passo(t) {
+      var dt = ultimo ? Math.min(0.05, (t - ultimo) / 1000) : 0;
+      ultimo = t;
+      if (!arrastando && visivel) {
+        if (Math.abs(vel) > 5) { x += vel * dt; vel *= Math.pow(0.04, dt); }   // embalo depois de soltar
+        else if (!emCima && !semMovimento) x -= VEL * dt;
+        ajustar();
+      }
+      requestAnimationFrame(passo);
+    }
+
+    box.addEventListener('mouseenter', function () { emCima = true; box.classList.add('is-paused'); });
+    box.addEventListener('mouseleave', function () { emCima = false; box.classList.remove('is-paused'); });
+    box.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) return;
+      arrastando = true; moveu = false; x0 = e.clientX; xIni = x; vel = 0; tPrev = performance.now(); xPrev = x;
+      box.classList.add('is-dragging');
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!arrastando) return;
+      var dx = e.clientX - x0;
+      if (Math.abs(dx) > 6) moveu = true;
+      x = xIni + dx;
+      var agora = performance.now();
+      if (agora - tPrev > 16) { vel = (x - xPrev) / ((agora - tPrev) / 1000); tPrev = agora; xPrev = x; }
+      ajustar();
+    });
+    function soltar() {
+      if (!arrastando) return;
+      arrastando = false;
+      box.classList.remove('is-dragging');
+      if (performance.now() - tPrev > 120) vel = 0;
+    }
+    window.addEventListener('pointerup', soltar);
+    window.addEventListener('pointercancel', soltar);
+    // Clique que foi arrasto não abre o WhatsApp
+    trilho.addEventListener('click', function (e) { if (moveu) { e.preventDefault(); moveu = false; } }, true);
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { vel = -520; e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { vel = 520; e.preventDefault(); }
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { visivel = en[0].isIntersecting; }).observe(box);
+    }
+    window.addEventListener('resize', medir);
+    trilho.querySelectorAll('img').forEach(function (im) { if (!im.complete) im.addEventListener('load', medir); });
+    medir();
+    requestAnimationFrame(passo);
   }
 
   /* "Quem somos": o texto do Studio fica recolhido atrás de um botão.
