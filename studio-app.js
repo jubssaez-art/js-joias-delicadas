@@ -323,9 +323,9 @@
         '<span class="lf-label">Lançamentos</span>' +
         (temLanc ? '<span class="lf-count">' + sel.qtdLanc + '</span>' : '') +
       '</button>' +
-      '<div class="lf-panel" id="lfPanel" role="dialog" aria-label="Lançamentos das joias parceiras" hidden>' +
+      '<div class="lf-panel" id="lfPanel" role="dialog" aria-label="Lançamentos das joias" hidden>' +
         '<div class="lf-head"><div>' +
-          '<p class="lf-kicker">Joias parceiras · JS Joias</p>' +
+          '<p class="lf-kicker">Lançamentos · JS Joias</p>' +
           '<h3>' + (temLanc ? 'Acabaram de <em>chegar</em>' : 'Novidades <em>em breve</em>') + '</h3>' +
           (temLanc ? '' : '<p class="lf-note">Enquanto isso, veja os destaques da coleção.</p>') +
         '</div><button type="button" class="lf-close" aria-label="Fechar">×</button></div>' +
