@@ -3153,3 +3153,25 @@ select:focus-visible {
   }
   .guarantee-unique h3 { justify-content: center; }
 }
+
+/* ===========================
+   VOLTAR AO STUDIO MIURA
+   Faixa no topo do catálogo, nas cores do Studio
+   =========================== */
+.studio-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 34px;
+  background: #3e171c;
+  color: #e0ccb8;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  transition: background 0.25s;
+}
+.studio-strip strong { font-weight: 500; color: #f3eadb; }
+.studio-strip-arrow { transition: transform 0.25s; }
+.studio-strip:hover { background: #6b2a31; }
+.studio-strip:hover .studio-strip-arrow { transform: translateX(-3px); }
+.mobile-nav-studio { color: #8c3b43; }
