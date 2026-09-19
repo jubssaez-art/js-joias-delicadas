@@ -1204,3 +1204,40 @@ button:focus-visible {
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   .floating-whatsapp { bottom: 18px; right: 18px; }
 }
+
+/* ===========================
+   CONTEÚDO VINDO DO PAINEL
+   =========================== */
+/* Seções/listas que o painel desliga somem mesmo quando o CSS define display */
+[hidden] { display: none !important; }
+
+/* Parte em *itálico* do título do conceito vai para a linha de baixo */
+.concept-title em { display: block; }
+
+/* Selo de prévia: aparece só no navegador de quem salvou a prévia no painel */
+.preview-flag {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px 10px 16px;
+  background: var(--marsala-deep);
+  color: var(--cream);
+  font-size: 12.5px;
+  border-radius: 999px;
+  box-shadow: 0 8px 30px rgba(30,8,12,0.35);
+}
+.preview-flag button {
+  border: 1px solid rgba(243,234,219,0.4);
+  background: none;
+  color: var(--cream);
+  font: inherit;
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.preview-flag button:hover { background: var(--cream); color: var(--marsala-deep); }

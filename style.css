@@ -3175,3 +3175,30 @@ select:focus-visible {
 .studio-strip:hover { background: #6b2a31; }
 .studio-strip:hover .studio-strip-arrow { transform: translateX(-3px); }
 .mobile-nav-studio { color: #8c3b43; }
+/* ===========================
+   ABA LANÇAMENTOS
+   =========================== */
+.filter-tab-new { color: var(--gold-dark); font-weight: 500; }
+.filter-tab-new .filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  margin-left: 4px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 10px;
+  letter-spacing: 0;
+}
+.filter-tab-new.active .filter-count { background: var(--white); color: var(--gold-dark); }
+.filter-empty {
+  text-align: center;
+  padding: 56px 24px;
+  color: var(--text-light);
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-style: italic;
+}

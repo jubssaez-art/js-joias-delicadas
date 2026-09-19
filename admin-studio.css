@@ -130,3 +130,146 @@
   .admin-welcome { padding: 24px 22px; }
   .login-logo { width: 190px; }
 }
+
+/* ---------- Abas do painel: Studio Miura | Catálogo de Joias ---------- */
+.admin-body [hidden] { display: none !important; }
+.panel-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  margin-bottom: 30px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  width: fit-content;
+  max-width: 100%;
+}
+.panel-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 24px;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.panel-tab svg { width: 16px; height: 16px; }
+.panel-tab:hover { color: var(--gold); }
+.panel-tab.is-active { background: var(--gold); color: var(--white); box-shadow: 0 4px 16px rgba(140,59,67,0.3); }
+.tab-pane { animation: pdpFadeUp 0.45s ease both; }
+
+.stat-wide .stat-value { font-size: 24px; }
+.admin-section-head code {
+  font-size: 12px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.config-field label small { font-weight: 400; letter-spacing: 0.5px; text-transform: none; color: var(--text-light); }
+
+/* Interruptor com rótulo, no cabeçalho das seções */
+.switch-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ---------- Editor de áreas ---------- */
+.area-list { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.area-empty { padding: 28px; text-align: center; color: var(--text-light); background: var(--white); border: 1px dashed var(--border); border-radius: var(--radius); }
+.area-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.area-item.open { border-color: var(--gold-light); box-shadow: var(--shadow); }
+.area-item.is-off { opacity: 0.6; }
+.area-item.is-off .area-name { text-decoration: line-through; }
+.area-head { display: flex; align-items: center; gap: 12px; padding: 10px 14px 10px 10px; }
+.area-toggle {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  color: var(--text);
+}
+.area-ico {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-ico svg { width: 20px; height: 20px; }
+.area-num { font-family: var(--font-serif); font-style: italic; color: var(--nude); font-size: 16px; }
+.area-name {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  color: var(--dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.area-count { font-size: 12px; color: var(--text-light); white-space: nowrap; }
+.area-caret { margin-left: auto; color: var(--text-light); transition: transform 0.3s; }
+.area-item.open .area-caret { transform: rotate(180deg); }
+.area-ctrls { display: flex; align-items: center; gap: 6px; }
+.area-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--dark);
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.area-btn:hover:not(:disabled) { background: var(--gold); border-color: var(--gold); color: var(--white); }
+.area-btn:disabled { opacity: 0.35; cursor: default; }
+.area-btn.danger:hover { background: #a53326; border-color: #a53326; }
+.area-ctrls .switch { margin-right: 6px; }
+.area-body { padding: 4px 24px 24px 72px; border-top: 1px solid var(--border); }
+.area-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; padding-top: 18px; }
+.area-grid .config-field { grid-column: 1 / -1; }
+.area-grid .config-field.half { grid-column: auto; }
+
+@media (max-width: 760px) {
+  .panel-tabs { width: 100%; }
+  .panel-tab { flex: 1; justify-content: center; padding: 11px 12px; letter-spacing: 1px; }
+  .area-count, .area-num { display: none; }
+  .area-name { font-size: 18px; }
+  .area-head { flex-wrap: wrap; }
+  .area-ctrls { width: 100%; justify-content: flex-end; }
+  .area-body { padding: 4px 16px 20px; }
+  .area-grid { grid-template-columns: 1fr; }
+  .area-grid .config-field.half { grid-column: 1 / -1; }
+}

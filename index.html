@@ -24,7 +24,7 @@
 
     <!-- ANNOUNCEMENT BAR -->
     <div class="announcement-bar" id="announcementBar">
-        <div class="announcement-inner">
+        <div class="announcement-inner" id="annInner">
             <span>✦ Fazenda Rio Grande – PR</span>
             <span class="sep hide-sm">|</span>
             <span class="hide-sm">Beleza • Estética • Autocuidado</span>
@@ -90,12 +90,12 @@
             <h1 class="hero-title">
                 <img src="img/studio/logo-miura-creme.png" alt="Studio Miura" class="hero-logo" width="906" height="286">
             </h1>
-            <p class="hero-subtitle">Um centro integrado de beleza e estética em Fazenda Rio Grande – PR. Cabelos, unhas, cílios, sobrancelhas, massagem e depilação a laser no mesmo espaço.</p>
+            <p class="hero-subtitle" id="heroSub">Um centro integrado de beleza e estética em Fazenda Rio Grande – PR. Cabelos, unhas, cílios, sobrancelhas, massagem e depilação a laser no mesmo espaço.</p>
             <div class="hero-ctas">
                 <a href="https://wa.me/5541997117882?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Miura." target="_blank" rel="noopener" class="btn btn-marsala">Agendar Horário</a>
                 <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
             </div>
-            <div class="hero-badges">
+            <div class="hero-badges" id="heroBadges">
                 <div class="badge"><span class="badge-icon">✦</span><span>Tudo em um só lugar</span></div>
                 <div class="badge"><span class="badge-icon">✦</span><span>Tecnologia &amp; bem-estar</span></div>
                 <div class="badge"><span class="badge-icon">✦</span><span>Atendimento personalizado</span></div>
@@ -110,21 +110,21 @@
             <div class="concept-grid">
                 <div class="concept-text reveal">
                     <div class="section-label">Conceito do Studio</div>
-                    <h2 class="section-title">Mais que um salão,<br><em>uma experiência completa</em></h2>
-                    <p>O <strong>Studio Miura</strong> é um espaço de beleza e estética localizado em <strong>Fazenda Rio Grande – PR</strong>, criado para reunir diferentes serviços de cuidados pessoais em um único ambiente.</p>
+                    <h2 class="section-title concept-title" id="conceptTitle">Mais que um salão, <em>uma experiência completa</em></h2>
+                    <div id="conceptTexts"><p>O <strong>Studio Miura</strong> é um espaço de beleza e estética localizado em <strong>Fazenda Rio Grande – PR</strong>, criado para reunir diferentes serviços de cuidados pessoais em um único ambiente.</p>
                     <p>Mais do que um salão de beleza tradicional, o Studio funciona como um <strong>centro integrado de beleza e estética</strong>: cabelos, unhas, cílios, depilação a laser, massagens e outros cuidados no mesmo lugar.</p>
-                    <p>Você pode vir para um procedimento específico ou combinar diferentes serviços na mesma visita, criando uma rotina de autocuidado mais prática.</p>
+                    <p>Você pode vir para um procedimento específico ou combinar diferentes serviços na mesma visita, criando uma rotina de autocuidado mais prática.</p></div>
                 </div>
                 <div class="concept-card reveal">
                     <p class="concept-card-label">O que o Studio une</p>
-                    <ul class="formula">
+                    <ul class="formula" id="conceptUniao">
                         <li><span class="plus"></span>Beleza</li>
                         <li><span class="plus">+</span>Estética</li>
                         <li><span class="plus">+</span>Tecnologia</li>
                         <li><span class="plus">+</span>Bem-estar</li>
                         <li><span class="plus">+</span>Atendimento personalizado</li>
                     </ul>
-                    <p class="concept-card-foot">Cada cliente é atendida a partir de uma conversa sobre o que deseja, sem pacote pronto.</p>
+                    <p class="concept-card-foot" id="conceptFoot">Cada cliente é atendida a partir de uma conversa sobre o que deseja, sem pacote pronto.</p>
                 </div>
             </div>
         </div>
@@ -135,13 +135,13 @@
         <div class="container">
             <div class="section-head reveal">
                 <div class="section-label">Nossos Serviços</div>
-                <h2 class="section-title">Cuidado da cabeça aos pés</h2>
-                <p class="section-subtitle">Serviços rápidos de manutenção e procedimentos completos de transformação, lado a lado.</p>
+                <h2 class="section-title" id="servTitle">Cuidado da cabeça aos pés</h2>
+                <p class="section-subtitle" id="servSub">Serviços rápidos de manutenção e procedimentos completos de transformação, lado a lado.</p>
             </div>
 
             <!-- CARROSSEL DAS ÁREAS -->
             <div class="areas-carousel reveal" id="areasCarousel" aria-roledescription="carrossel" aria-label="Áreas do Studio">
-                <div class="ac-tabs" role="tablist" aria-label="Escolha a área">
+                <div class="ac-tabs" role="tablist" aria-label="Escolha a área" id="acTabs">
                     <button class="ac-tab is-active" role="tab" id="ac-tab-0" aria-controls="ac-slide-0" aria-selected="true"><span class="n">01</span>Laser</button>
                     <button class="ac-tab" role="tab" id="ac-tab-1" aria-controls="ac-slide-1" aria-selected="false" tabindex="-1"><span class="n">02</span>Cabelos</button>
                     <button class="ac-tab" role="tab" id="ac-tab-2" aria-controls="ac-slide-2" aria-selected="false" tabindex="-1"><span class="n">03</span>Unhas</button>
@@ -150,7 +150,7 @@
                     <button class="ac-tab" role="tab" id="ac-tab-5" aria-controls="ac-slide-5" aria-selected="false" tabindex="-1"><span class="n">06</span>Massagem</button>
                 </div>
 
-                <div class="ac-viewport">
+                <div class="ac-viewport" id="acViewport">
                     <article class="ac-slide is-active" role="tabpanel" id="ac-slide-0" aria-labelledby="ac-tab-0" style="--g1:#8c3b43;--g2:#3e171c">
                         <div class="ac-art" aria-hidden="true">
                             <span class="ac-num">01</span>
@@ -279,7 +279,7 @@
                 </div>
 
                 <div class="ac-controls">
-                    <span class="ac-counter"><strong id="acCurrent">01</strong> / 06</span>
+                    <span class="ac-counter"><strong id="acCurrent">01</strong> / <span id="acTotal">06</span></span>
                     <div class="ac-arrows">
                         <button class="ac-arrow" id="acPrev" aria-label="Área anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
                         <button class="ac-arrow" id="acNext" aria-label="Próxima área"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
@@ -287,7 +287,7 @@
                 </div>
             </div>
 
-            <div class="services-grid">
+            <div class="services-grid" id="servicesGrid">
 
                 <article class="service-card reveal" id="card-laser">
                     <span class="service-num">01</span>
@@ -366,19 +366,21 @@
                 <div class="reveal">
                     <div class="section-label light">Estética</div>
                     <h2 class="laser-title">Depilação<br><em>a Laser</em></h2>
+                    <div id="laserTexts">
                     <p class="laser-text">O tratamento emite luz direcionada ao pigmento presente no pelo. Essa luz gera calor e atinge as estruturas ligadas ao crescimento do fio.</p>
                     <p class="laser-text">Os resultados são progressivos. O número de sessões depende da região tratada, das características da pele e dos pelos e da resposta de cada cliente.</p>
-                    <ol class="laser-steps">
+                    </div>
+                    <ol class="laser-steps" id="laserSteps">
                         <li><span class="step-n">1</span><div><strong>Avaliação individual</strong><span class="desc">Análise da pele, dos pelos, do seu histórico e de possíveis contraindicações.</span></div></li>
                         <li><span class="step-n">2</span><div><strong>Plano de sessões</strong><span class="desc">Sessões avulsas ou pacotes, conforme a área e o seu objetivo.</span></div></li>
                         <li><span class="step-n">3</span><div><strong>Acompanhamento</strong><span class="desc">Cada sessão é ajustada à resposta da sua pele.</span></div></li>
                     </ol>
-                    <a href="https://wa.me/5541997117882?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20depila%C3%A7%C3%A3o%20a%20laser." target="_blank" rel="noopener" class="btn btn-cream">Agendar Avaliação</a>
+                    <a href="https://wa.me/5541997117882?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20depila%C3%A7%C3%A3o%20a%20laser." target="_blank" rel="noopener" class="btn btn-cream" id="laserBtn">Agendar Avaliação</a>
                 </div>
-                <div class="laser-areas reveal">
+                <div class="laser-areas reveal" id="laserAreasBox">
                     <h3>Áreas de atendimento</h3>
                     <p>A lista final é definida na avaliação.</p>
-                    <ul class="areas-grid">
+                    <ul class="areas-grid" id="laserAreas">
                         <li>Axilas</li><li>Virilha</li><li>Pernas</li>
                         <li>Meia perna</li><li>Braços</li><li>Antebraços</li>
                         <li>Buço</li><li>Queixo</li><li>Rosto</li>
@@ -424,11 +426,11 @@
                             <img src="img/studio/logo-miura-creme.png" alt="Studio Miura" class="footer-logo" width="906" height="286" loading="lazy">
                             <div class="footer-brand-tagline">Beleza • Estética • Autocuidado</div>
                         </div>
-                        <p class="footer-desc">Centro integrado de beleza e estética em Fazenda Rio Grande – PR.</p>
+                        <p class="footer-desc" id="footerDesc">Centro integrado de beleza e estética em Fazenda Rio Grande – PR.</p>
                     </div>
                     <div>
                         <h4 class="footer-col-title">Serviços</h4>
-                        <ul class="footer-links">
+                        <ul class="footer-links" id="footerServices">
                             <li><a href="#laser">Depilação a Laser</a></li>
                             <li><a href="#servicos">Cabelos</a></li>
                             <li><a href="#servicos">Manicure &amp; Nail Design</a></li>
@@ -446,7 +448,7 @@
                     </div>
                     <div>
                         <h4 class="footer-col-title">Contato</h4>
-                        <div class="footer-contact">
+                        <div class="footer-contact" id="footerContact">
                             <p>WhatsApp</p>
                             <a href="https://wa.me/5541997117882" target="_blank" rel="noopener">(41) 99711-7882</a>
                             <p>Telefone</p>
@@ -461,7 +463,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <p>© 2026 Studio Miura. Todos os direitos reservados.</p>
-                <p>Fazenda Rio Grande – PR</p>
+                <p id="footerAddr">Fazenda Rio Grande – PR</p>
             </div>
         </div>
     </footer>
@@ -472,120 +474,8 @@
         <span class="wa-tooltip">Agendar no Studio ✦</span>
     </a>
 
-    <script>
-    (function () {
-        document.documentElement.classList.remove('no-js');
-
-        var bar = document.getElementById('announcementBar');
-        document.getElementById('closeAnnouncement').addEventListener('click', function () {
-            bar.classList.add('hidden');
-        });
-
-        var navbar = document.getElementById('navbar');
-        function onScroll() { navbar.classList.toggle('scrolled', window.scrollY > 10); }
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-
-        var menu = document.getElementById('mobileMenu');
-        var overlay = document.getElementById('mobileOverlay');
-        var burger = document.getElementById('hamburger');
-        function setMenu(open) {
-            menu.classList.toggle('open', open);
-            overlay.classList.toggle('active', open);
-            burger.setAttribute('aria-expanded', open);
-            menu.setAttribute('aria-hidden', !open);
-            document.body.style.overflow = open ? 'hidden' : '';
-        }
-        burger.addEventListener('click', function () { setMenu(true); });
-        document.getElementById('mobileClose').addEventListener('click', function () { setMenu(false); });
-        overlay.addEventListener('click', function () { setMenu(false); });
-        menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
-
-        // Carrossel das áreas
-        (function () {
-            var root = document.getElementById('areasCarousel');
-            if (!root) return;
-            var tabs = root.querySelectorAll('.ac-tab');
-            var slides = root.querySelectorAll('.ac-slide');
-            var contador = document.getElementById('acCurrent');
-            var atual = 0;
-            var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (semMovimento) root.classList.add('is-static');
-
-            function ir(i, foco) {
-                atual = (i + slides.length) % slides.length;
-                tabs.forEach(function (t, k) {
-                    var ativo = k === atual;
-                    t.classList.toggle('is-active', ativo);
-                    t.setAttribute('aria-selected', ativo);
-                    t.tabIndex = ativo ? 0 : -1;
-                });
-                slides.forEach(function (s, k) {
-                    var ativo = k === atual;
-                    s.classList.toggle('is-active', ativo);
-                    s.setAttribute('aria-hidden', !ativo);
-                    s.inert = !ativo;
-                });
-                contador.textContent = (atual < 9 ? '0' : '') + (atual + 1);
-                if (foco) tabs[atual].focus();
-                // Reinicia a barra de progresso da aba ativa
-                var aba = tabs[atual];
-                aba.classList.remove('is-active'); void aba.offsetWidth; aba.classList.add('is-active');
-                // No celular as abas rolam na horizontal: centraliza a ativa sem mexer na página
-                var barra = aba.parentNode;
-                barra.scrollTo({ left: aba.offsetLeft - (barra.clientWidth - aba.offsetWidth) / 2, behavior: semMovimento ? 'auto' : 'smooth' });
-            }
-
-            tabs.forEach(function (t, k) {
-                t.addEventListener('click', function () { ir(k); });
-                t.addEventListener('keydown', function (e) {
-                    if (e.key === 'ArrowRight') { e.preventDefault(); ir(atual + 1, true); }
-                    if (e.key === 'ArrowLeft') { e.preventDefault(); ir(atual - 1, true); }
-                });
-                // Fim da barra de progresso = próxima área
-                t.addEventListener('animationend', function () { if (!semMovimento && k === atual) ir(atual + 1); });
-            });
-            document.getElementById('acPrev').addEventListener('click', function () { ir(atual - 1); });
-            document.getElementById('acNext').addEventListener('click', function () { ir(atual + 1); });
-
-            // Pausa com o mouse em cima, com foco dentro, ou fora da tela
-            var pausas = { hover: false, foco: false, fora: true };
-            function atualizarPausa() { root.classList.toggle('is-paused', pausas.hover || pausas.foco || pausas.fora); }
-            root.addEventListener('mouseenter', function () { pausas.hover = true; atualizarPausa(); });
-            root.addEventListener('mouseleave', function () { pausas.hover = false; atualizarPausa(); });
-            root.addEventListener('focusin', function () { pausas.foco = true; atualizarPausa(); });
-            root.addEventListener('focusout', function () { pausas.foco = false; atualizarPausa(); });
-            if ('IntersectionObserver' in window) {
-                new IntersectionObserver(function (en) { pausas.fora = !en[0].isIntersecting; atualizarPausa(); }, { threshold: 0.35 }).observe(root);
-            } else { pausas.fora = false; }
-            atualizarPausa();
-
-            // Arrastar com o dedo
-            var vp = root.querySelector('.ac-viewport'), x0 = null;
-            vp.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') x0 = e.clientX; });
-            vp.addEventListener('pointerup', function (e) {
-                if (x0 === null) return;
-                var dx = e.clientX - x0; x0 = null;
-                if (Math.abs(dx) > 50) ir(atual + (dx < 0 ? 1 : -1));
-            });
-            vp.addEventListener('pointercancel', function () { x0 = null; });
-
-            ir(0);
-        })();
-
-        var itens = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) {
-            itens.forEach(function (el) { el.classList.add('visible'); });
-            return;
-        }
-        var io = new IntersectionObserver(function (entradas) {
-            entradas.forEach(function (en) {
-                if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        itens.forEach(function (el) { io.observe(el); });
-    })();
-    </script>
+    <script src="data/studio.js"></script>
+    <script src="studio-icones.js"></script>
+    <script src="studio-app.js"></script>
 </body>
 </html>

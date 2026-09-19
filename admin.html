@@ -35,7 +35,7 @@
         <header class="admin-header">
             <div class="admin-brand">
                 <img src="img/studio/logo-miura.png" alt="Studio Miura" class="admin-logo" width="906" height="286">
-                <div class="admin-brand-sub"><strong>Painel de Controle</strong>Catálogo de Joias</div>
+                <div class="admin-brand-sub"><strong>Painel de Controle</strong>Studio Miura</div>
             </div>
             <div class="admin-header-actions">
                 <a href="index.html" target="_blank" class="btn btn-outline-sm">Ver Studio ↗</a>
@@ -48,15 +48,126 @@
             <div class="admin-welcome">
                 <p>Studio Miura · Painel</p>
                 <h1>Bem-vinda ao seu <em>painel</em></h1>
-                <p>Cuide do catálogo de joias: preços, fotos, estoque e avisos. Nada vai ao ar até você salvar ou publicar.</p>
+                <p>Edite tudo do site do Studio Miura e do catálogo de joias. Nada vai ao ar até você salvar a prévia ou publicar.</p>
             </div>
 
+            <div class="panel-tabs" role="tablist" aria-label="Área do painel">
+                <button type="button" class="panel-tab is-active" role="tab" data-tab="studio" id="ptab-studio" aria-selected="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19c0-8 5.5-13.5 15-14-.5 9.5-6 15-14 15"/><path d="M5 19c3-3.5 6-6.5 10-9"/></svg>
+                    Studio Miura
+                </button>
+                <button type="button" class="panel-tab" role="tab" data-tab="joias" id="ptab-joias" aria-selected="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20"/></svg>
+                    Catálogo de Joias
+                </button>
+            </div>
+
+            <!-- ABA STUDIO MIURA -->
+            <div class="tab-pane" id="pane-studio" role="tabpanel" aria-labelledby="ptab-studio">
+                <div class="admin-stats" id="stStats"></div>
+
+                <section class="admin-section">
+                    <div class="admin-section-head"><div>
+                        <h2>Contato e Avisos</h2>
+                        <p>O WhatsApp vale para todos os botões de agendar do site do Studio.</p>
+                    </div></div>
+                    <div class="admin-config">
+                        <div class="config-grid">
+                            <div class="config-field"><label for="stWhats">WhatsApp de agendamento (55 + DDD + número)</label><input type="text" id="stWhats" inputmode="numeric" data-k="contato.whatsapp" placeholder="5541997117882"></div>
+                            <div class="config-field"><label for="stInsta">Instagram do Studio (sem @, opcional)</label><input type="text" id="stInsta" data-k="contato.instagram" placeholder="studiomiura"></div>
+                        </div>
+                        <div class="config-grid">
+                            <div class="config-field"><label for="stEnd">Endereço</label><input type="text" id="stEnd" data-k="contato.endereco" placeholder="Rua…, Fazenda Rio Grande – PR"></div>
+                            <div class="config-field"><label for="stHora">Horário de atendimento (opcional)</label><input type="text" id="stHora" data-k="contato.horario" placeholder="Seg–Sáb · 9h às 19h"></div>
+                        </div>
+                        <div class="config-grid three">
+                            <div class="config-field"><label for="stAv0">Aviso 1 da barra</label><input type="text" id="stAv0" data-k="avisos.0"></div>
+                            <div class="config-field"><label for="stAv1">Aviso 2 da barra</label><input type="text" id="stAv1" data-k="avisos.1"></div>
+                            <div class="config-field"><label for="stAv2">Aviso 3 da barra</label><input type="text" id="stAv2" data-k="avisos.2"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="admin-section">
+                    <div class="admin-section-head"><div>
+                        <h2>Capa e Conceito</h2>
+                        <p>Nos textos, use <code>*assim*</code> para itálico e <code>**assim**</code> para negrito.</p>
+                    </div></div>
+                    <div class="admin-config">
+                        <div class="config-field"><label for="stSub">Frase da capa</label><textarea id="stSub" rows="2" data-k="capa.subtitulo"></textarea></div>
+                        <div class="config-field"><label for="stSelos">Selos da capa <small>(um por linha)</small></label><textarea id="stSelos" rows="3" data-k="capa.selos" data-t="linhas"></textarea></div>
+                        <div class="config-field"><label for="stCTit">Título do conceito <small>(a parte em *itálico* vai para a linha de baixo)</small></label><input type="text" id="stCTit" data-k="conceito.titulo"></div>
+                        <div class="config-field"><label for="stCTxt">Textos do conceito <small>(deixe uma linha em branco entre os parágrafos)</small></label><textarea id="stCTxt" rows="7" data-k="conceito.textos" data-t="paragrafos"></textarea></div>
+                        <div class="config-grid">
+                            <div class="config-field"><label for="stUniao">"O que o Studio une" <small>(um por linha)</small></label><textarea id="stUniao" rows="5" data-k="conceito.uniao" data-t="linhas"></textarea></div>
+                            <div class="config-field"><label for="stCRod">Frase do quadro</label><textarea id="stCRod" rows="5" data-k="conceito.rodape"></textarea></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="admin-section">
+                    <div class="admin-section-head">
+                        <div>
+                            <h2>Áreas e Serviços</h2>
+                            <p>Cada área vira um slide do carrossel e um cartão da grade. Clique numa área para editar; use as setas para mudar a ordem.</p>
+                        </div>
+                        <button type="button" class="btn btn-gold" id="stAddArea">＋ Adicionar área</button>
+                    </div>
+                    <div class="admin-config">
+                        <div class="config-grid">
+                            <div class="config-field"><label for="stSTit">Título da seção</label><input type="text" id="stSTit" data-k="servicos.titulo"></div>
+                            <div class="config-field"><label for="stSSub">Subtítulo da seção</label><input type="text" id="stSSub" data-k="servicos.subtitulo"></div>
+                        </div>
+                    </div>
+                    <div class="area-list" id="stAreas"></div>
+                </section>
+
+                <section class="admin-section">
+                    <div class="admin-section-head">
+                        <div>
+                            <h2>Depilação a Laser — seção de destaque</h2>
+                            <p>A faixa escura com as etapas e as áreas do corpo atendidas.</p>
+                        </div>
+                        <label class="switch-row"><span>Mostrar no site</span><span class="switch"><input type="checkbox" id="stLaserOn" data-k="laser.visivel" data-t="bool"><span class="slider"></span></span></label>
+                    </div>
+                    <div class="admin-config">
+                        <div class="config-field"><label for="stLTxt">Textos <small>(linha em branco entre parágrafos)</small></label><textarea id="stLTxt" rows="5" data-k="laser.textos" data-t="paragrafos"></textarea></div>
+                        <div class="config-grid">
+                            <div class="config-field"><label for="stLEt">Etapas <small>(uma por linha, no formato <em>Título: explicação</em>)</small></label><textarea id="stLEt" rows="5" data-k="laser.etapas" data-t="etapas"></textarea></div>
+                            <div class="config-field"><label for="stLAr">Áreas do corpo atendidas <small>(uma por linha)</small></label><textarea id="stLAr" rows="5" data-k="laser.areas" data-t="linhas"></textarea></div>
+                        </div>
+                        <div class="config-field"><label for="stLMsg">Mensagem do botão "Agendar Avaliação"</label><input type="text" id="stLMsg" data-k="laser.mensagem"></div>
+                    </div>
+                </section>
+
+                <section class="admin-section">
+                    <div class="admin-section-head">
+                        <div>
+                            <h2>Catálogo de Joias na página do Studio</h2>
+                            <p>O banner com as fotos das joias e o botão para o catálogo.</p>
+                        </div>
+                        <label class="switch-row"><span>Mostrar no site</span><span class="switch"><input type="checkbox" id="stJoiasOn" data-k="joias.visivel" data-t="bool"><span class="slider"></span></span></label>
+                    </div>
+                </section>
+
+                <section class="admin-actions-bar" id="stActionsBar">
+                    <div class="pending-note" id="stPending">Nenhuma alteração pendente</div>
+                    <div class="admin-actions-btns">
+                        <button class="btn btn-outline-sm" id="stDiscard">Descartar alterações</button>
+                        <button class="btn btn-cream" id="stPreview">Salvar prévia neste navegador</button>
+                        <button class="btn btn-gold" id="stPublish">✦ Publicar o Studio</button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ABA CATÁLOGO DE JOIAS -->
+            <div class="tab-pane" id="pane-joias" role="tabpanel" aria-labelledby="ptab-joias" hidden>
             <div class="admin-stats" id="adminStats"></div>
 
             <section class="admin-section">
                 <div class="admin-section-head">
                     <div>
-                        <h2>Configurações da Loja</h2>
+                        <h2>Configurações da Loja de Joias</h2>
                         <p>Avisos do topo, WhatsApp e Instagram — valem para o site inteiro, inclusive o checkout.</p>
                     </div>
                 </div>
@@ -82,7 +193,7 @@
             <section class="admin-section">
                 <div class="admin-section-head">
                     <div>
-                        <h2>Peças da Loja</h2>
+                        <h2>Peças do Catálogo</h2>
                         <p>Edite nome, preços, promoções e estoque, ou oculte peças da vitrine. As mudanças ficam pendentes até você salvar.</p>
                     </div>
                     <button type="button" class="btn btn-gold" id="openNewPieceBtn">＋ Adicionar peça</button>
@@ -97,6 +208,7 @@
                                 <th>Preço (R$)</th>
                                 <th>De (R$)</th>
                                 <th>Selo</th>
+                                <th>Lançamento</th>
                                 <th>À venda</th>
                                 <th>Visível</th>
                             </tr>
@@ -115,8 +227,10 @@
                 </div>
             </section>
 
+            </div>
+
             <section class="admin-section admin-publish-box">
-                <h3>Publicação</h3>
+                <h3>Publicação (vale para as duas abas)</h3>
                 <p>Para o botão <strong>"Publicar no site"</strong> funcionar, cole aqui um token do GitHub
                    (<a href="https://github.com/settings/personal-access-tokens/new" target="_blank">criar token ↗</a> — dê acesso de <em>Contents: Read and write</em> apenas ao repositório <code>js-joias-delicadas</code>).
                    O token fica salvo <strong>somente neste navegador</strong>.</p>
@@ -176,7 +290,9 @@
                             <div class="config-field"><label for="npPrice">Preço (R$)</label><input type="text" id="npPrice" inputmode="decimal" placeholder="99,90" required></div>
                             <div class="config-field"><label for="npOldPrice">Preço "De" (opcional)</label><input type="text" id="npOldPrice" inputmode="decimal" placeholder="—"></div>
                             <div class="config-field checkbox-field">
-                                <label for="npKids"><input type="checkbox" id="npKids"> Peça infantil (aba Kids)</label>
+                                <label for="npKids"><input type="checkbox" id="npKids"> Peça infantil (aba Kids)</label></div>
+                            <div class="config-field checkbox-field">
+                                <label for="npLanc"><input type="checkbox" id="npLanc" checked> Mostrar em Lançamentos</label>
                             </div>
                         </div>
                         <div class="config-field">
@@ -195,5 +311,8 @@
     <script src="data/catalogo-auto.js"></script>
     <script src="script.js"></script>
     <script src="admin.js"></script>
+    <script src="data/studio.js"></script>
+    <script src="studio-icones.js"></script>
+    <script src="admin-studio.js"></script>
 </body>
 </html>

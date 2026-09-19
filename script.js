@@ -130,6 +130,14 @@ const products = [
   products.unshift(...auto.filter(p => p && p.image && !jaNoCatalogo.has(p.image)));
 })();
 
+// ===== LANÇAMENTOS =====
+// Peça é lançamento quando o painel marca (lancamento: true/false manda) ou,
+// sem marcação, quando o selo diz Novidade/Lançamento/Novo e a peça está à venda.
+window.isLancamento = function (p) {
+  if (typeof p.lancamento === 'boolean') return p.lancamento;
+  return !p.soldOut && /novidade|lan[cç]amento|\bnovo\b/i.test(p.badge || '');
+};
+
 // ===== AJUSTES DO PAINEL =====
 // Prioridade: prévia local (admin testando neste navegador) > publicado (data/produtos.js)
 (function applyOverrides() {
@@ -157,6 +165,7 @@ const products = [
     if (typeof o.price === 'number' && o.price > 0) products[i].price = o.price;
     if (typeof o.oldPrice === 'number' && o.oldPrice > 0) products[i].oldPrice = o.oldPrice;
     if (o.oldPrice === null) delete products[i].oldPrice;
+    if (typeof o.lancamento === 'boolean') products[i].lancamento = o.lancamento;
     // Estoque: o painel manda tanto para marcar quanto para liberar a peça
     if (typeof o.soldOut === 'boolean') {
       if (o.soldOut) products[i].soldOut = true;
@@ -165,7 +174,8 @@ const products = [
   }
 
   // Peças novas criadas no painel — entram no topo, junto com as fotos recém-publicadas
-  const extras = (state.extras || []).filter(x => x && !x.hidden).map(x => ({ ...x }));
+  // Peça criada no painel nasce lançamento, a menos que o painel desmarque
+  const extras = (state.extras || []).filter(x => x && !x.hidden).map(x => ({ ...x, lancamento: x.lancamento !== false }));
   if (extras.length) products.unshift(...extras);
 
   // Configurações da loja (com padrões)
@@ -238,7 +248,7 @@ function renderProducts() {
             </div>`;
 
     return `
-      <article class="product-card${isSoldOut ? ' sold-out' : ''}" data-category="${product.categories} ${productType(product)}" id="prod-${product.id}">
+      <article class="product-card${isSoldOut ? ' sold-out' : ''}" data-category="${product.categories} ${productType(product)}${isLancamento(product) ? ' lancamento' : ''}" id="prod-${product.id}">
         <div class="product-img-wrap">
           <img src="${product.image}" alt="${product.name}" loading="lazy">
           ${product.imageAlt ? `<img src="${product.imageAlt}" alt="" class="img-alt" loading="lazy" aria-hidden="true">` : ''}
@@ -277,9 +287,11 @@ function applyFilter(filter) {
     });
   }
 
+  let visiveis = 0;
   document.querySelectorAll('.product-card').forEach((card, i) => {
     const categories = card.dataset.category || '';
-    const show = filter === 'todos' || categories.includes(filter);
+    const show = filter === 'todos' || categories.split(' ').includes(filter);
+    if (show) visiveis++;
     card.classList.remove('hidden', 'fade-in');
     if (!show) {
       card.classList.add('hidden');
@@ -289,13 +301,42 @@ function applyFilter(filter) {
       card.style.animationDelay = `${(i % 6) * 0.06}s`;
     }
   });
+
+  // Aba sem peças (ex.: nenhum lançamento no momento) não fica em branco
+  const grid = document.getElementById('productsGrid');
+  let vazio = document.getElementById('filterEmpty');
+  if (!vazio && grid) {
+    vazio = document.createElement('p');
+    vazio.id = 'filterEmpty';
+    vazio.className = 'filter-empty';
+    grid.after(vazio);
+  }
+  if (vazio) {
+    vazio.hidden = visiveis > 0;
+    vazio.textContent = filter === 'lancamento'
+      ? '✦ Novos lançamentos chegando em breve — fale com a gente no WhatsApp para saber em primeira mão.'
+      : 'Nenhuma peça nesta categoria no momento.';
+  }
 }
 
 (function initFilterTabs() {
   renderProducts();
+  // Quantidade de lançamentos na própria aba
+  const qtd = products.filter(isLancamento).length;
+  const abaNova = document.getElementById('tab-lancamento');
+  if (abaNova && qtd) abaNova.insertAdjacentHTML('beforeend', ` <span class="filter-count">${qtd}</span>`);
   document.querySelectorAll('.filter-tab').forEach(tab => {
     tab.addEventListener('click', () => applyFilter(tab.dataset.filter));
   });
+  // Links do menu que levam direto a uma aba (ex.: Lançamentos)
+  document.querySelectorAll('[data-goto-filter]').forEach(link => {
+    link.addEventListener('click', () => applyFilter(link.dataset.gotoFilter));
+  });
+  if (location.hash === '#lancamentos') {
+    applyFilter('lancamento');
+    const sec = document.getElementById('produtos');
+    if (sec) setTimeout(() => sec.scrollIntoView(), 0);
+  }
 })();
 
 // ===== CONTAGEM REAL DAS COLEÇÕES =====

@@ -81,6 +81,7 @@
       badge: typeof o.badge === 'string' ? (o.badge.trim() || undefined) : p.badge,
       desc: (typeof o.desc === 'string' && o.desc.trim()) ? o.desc : (p.desc || ''),
       soldOut: typeof o.soldOut === 'boolean' ? o.soldOut : !!p.soldOut,
+      lancamento: typeof o.lancamento === 'boolean' ? o.lancamento : isLancamento(p),
       hidden: !!o.hidden
     };
   }
@@ -96,6 +97,7 @@
     const badge = row.querySelector('[data-f="badge"]').value.trim();
     const visible = row.querySelector('[data-f="visible"]').checked;
     const soldOut = !row.querySelector('[data-f="stock"]').checked;
+    const lanc = row.querySelector('[data-f="lanc"]').checked;
     const desc = descRow.querySelector('[data-f="desc"]').value.trim();
 
     const o = {};
@@ -106,6 +108,7 @@
     if (badge !== (p.badge || '')) o.badge = badge;
     if (desc && desc !== (p.desc || '')) o.desc = desc;
     if (soldOut !== !!p.soldOut) o.soldOut = soldOut;
+    if (lanc !== isLancamento(p)) o.lancamento = lanc;
     if (!visible) o.hidden = true;
 
     if (Object.keys(o).length) edits.overrides[p.id] = o;
@@ -126,6 +129,7 @@
     x.desc = descRow.querySelector('[data-f="desc"]').value.trim();
     if (row.querySelector('[data-f="stock"]').checked) delete x.soldOut;
     else x.soldOut = true;
+    x.lancamento = row.querySelector('[data-f="lanc"]').checked;
     if (row.querySelector('[data-f="visible"]').checked) delete x.hidden;
     else x.hidden = true;
     updatePending();
@@ -157,20 +161,22 @@
   function renderStats() {
     const base = (window.PRODUCTS_BASE || []).map(effective);
     const extras = edits.extras;
-    const all = [...base, ...extras.map(x => ({ ...x, hidden: !!x.hidden }))];
+    const all = [...base, ...extras.map(x => ({ ...x, hidden: !!x.hidden, lancamento: x.lancamento !== false }))];
     const visiveis = all.filter(p => !p.hidden);
     const aVenda = visiveis.filter(p => !p.soldOut);
     const promo = aVenda.filter(p => p.oldPrice && p.oldPrice > p.price);
+    const lancs = visiveis.filter(p => p.lancamento);
     const medio = aVenda.length ? aVenda.reduce((s, p) => s + p.price, 0) / aVenda.length : 0;
     document.getElementById('adminStats').innerHTML = `
       <div class="stat-card"><span class="stat-value">${aVenda.length}</span><span class="stat-name">peças à venda</span></div>
       <div class="stat-card"><span class="stat-value">${visiveis.length - aVenda.length}</span><span class="stat-name">esgotadas</span></div>
       <div class="stat-card"><span class="stat-value">${all.length - visiveis.length}</span><span class="stat-name">ocultas</span></div>
+      <div class="stat-card"><span class="stat-value">${lancs.length}</span><span class="stat-name">lançamentos</span></div>
       <div class="stat-card"><span class="stat-value">${promo.length}</span><span class="stat-name">em promoção</span></div>
       <div class="stat-card"><span class="stat-value">${fmt(medio)}</span><span class="stat-name">preço médio</span></div>`;
   }
 
-  function rowPair({ id, image, tag, name, price, oldPrice, badge, desc, soldOut, hidden, isExtra, linkable }) {
+  function rowPair({ id, image, tag, name, price, oldPrice, badge, desc, soldOut, hidden, lancamento, isExtra, linkable }) {
     const imgTag = linkable
       ? `<a href="produto.html?id=${id}" target="_blank" title="Ver página da peça"><img src="${image}" alt=""></a>`
       : `<img src="${image}" alt="">`;
@@ -189,6 +195,12 @@
         <td><input type="text" data-f="oldPrice" inputmode="decimal" value="${oldPrice ? oldPrice.toFixed(2).replace('.', ',') : ''}" placeholder="—" class="input-num"></td>
         <td><input type="text" data-f="badge" value="${escAttr(badge || '')}" placeholder="—" class="input-badge"></td>
         <td class="cell-visible">
+          <label class="switch" title="Ligue para a peça aparecer na aba Lançamentos do catálogo">
+            <input type="checkbox" data-f="lanc" ${lancamento ? 'checked' : ''}>
+            <span class="slider"></span>
+          </label>
+        </td>
+        <td class="cell-visible">
           <label class="switch" title="Desligue para marcar a peça como esgotada na vitrine">
             <input type="checkbox" data-f="stock" ${soldOut ? '' : 'checked'}>
             <span class="slider"></span>
@@ -202,7 +214,7 @@
         </td>
       </tr>
       <tr class="desc-row" data-desc="${id}" hidden>
-        <td colspan="7">
+        <td colspan="8">
           <label>Descrição exibida na página da peça</label>
           <textarea data-f="desc" rows="2" maxlength="300">${escAttr(desc)}</textarea>
         </td>
@@ -237,7 +249,7 @@
       return rowPair({ id: p.id, image: p.image, tag: p.tag, ...e, isExtra: false, linkable: true });
     }).join('');
     const extraHtml = edits.extras.map(x =>
-      rowPair({ id: x.id, image: x.image, tag: x.tag, name: x.name, price: x.price, oldPrice: x.oldPrice, badge: x.badge, desc: x.desc || '', soldOut: !!x.soldOut, hidden: !!x.hidden, isExtra: true, linkable: !String(x.image).startsWith('data:') })
+      rowPair({ id: x.id, image: x.image, tag: x.tag, name: x.name, price: x.price, oldPrice: x.oldPrice, badge: x.badge, desc: x.desc || '', soldOut: !!x.soldOut, hidden: !!x.hidden, lancamento: x.lancamento !== false, isExtra: true, linkable: !String(x.image).startsWith('data:') })
     ).join('');
     rows.innerHTML = baseHtml + extraHtml;
     renderOrphans();
@@ -372,7 +384,8 @@
       image: npPhotoData,
       price: Math.round(price * 100) / 100,
       details: ['Antialérgico', material],
-      desc: document.getElementById('npDesc').value.trim()
+      desc: document.getElementById('npDesc').value.trim(),
+      lancamento: document.getElementById('npLanc').checked
     };
     const oldPrice = parseNum(document.getElementById('npOldPrice').value);
     if (!isNaN(oldPrice) && oldPrice > 0) x.oldPrice = Math.round(oldPrice * 100) / 100;
