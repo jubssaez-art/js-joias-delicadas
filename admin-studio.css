@@ -273,3 +273,5 @@
   .area-grid { grid-template-columns: 1fr; }
   .area-grid .config-field.half { grid-column: 1 / -1; }
 }
+.switch-row-inline { text-transform: none; letter-spacing: 0.3px; font-size: 13.5px; color: var(--text); margin-top: 4px; }
+.switch-row-inline strong { color: var(--gold); font-weight: 500; }

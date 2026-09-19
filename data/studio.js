@@ -148,6 +148,7 @@ window.STUDIO = {
   },
   "joias": {
     "visivel": true,
+    "botao": true,
     "titulo": "Joias *parceiras*",
     "texto": "Para completar o seu momento de cuidado, a **JS Joias Delicadas** é parceira do Studio: semi-joias banhadas a ouro 18k e prata, antialérgicas e com 1 ano de garantia."
   }

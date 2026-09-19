@@ -172,7 +172,11 @@
       $('joias').hidden = S.joias.visivel === false;
       if (S.joias.titulo) $('joiasTitle').innerHTML = fmt(S.joias.titulo);
       if (S.joias.texto) $('joiasText').innerHTML = fmt(S.joias.texto);
-      if (S.joias.visivel !== false) vitrineDeJoias();
+      if (S.joias.visivel !== false) {
+        var selecao = selecionarJoias();
+        vitrineDeJoias(selecao);
+        if (S.joias.botao !== false) botaoLancamentos(selecao);
+      }
     }
 
     // Rodapé
@@ -205,10 +209,10 @@
     if (emPrevia) avisoDePrevia();
   }
 
-  /* Vitrine das joias: mesmos dados e mesma regra de "lançamento" do catálogo
-     (script.js). Sem lançamento marcado, mostra uma peça de cada tipo à venda
-     para a seção nunca ficar vazia. */
-  function vitrineDeJoias() {
+  /* Peças para a vitrine e o botão de lançamentos: mesmos dados e mesma regra
+     de "lançamento" do catálogo (script.js). Sem lançamento marcado, uma peça
+     de cada tipo à venda, para nada ficar vazio. */
+  function selecionarJoias() {
     var auto = window.PRODUCTS_AUTO || [];
     var estado = {
       overrides: window.PRODUCTS_OVERRIDE || {},
@@ -252,9 +256,14 @@
         return true;
       }).slice(0, 4);
     }
-    if (!mostrar.length) return;   // fica a vitrine escrita no HTML
+    return { mostrar: mostrar, temLanc: temLanc, qtdLanc: lancs.length };
+  }
 
-    function preco(v) { return 'R$ ' + Number(v).toFixed(2).replace('.', ','); }
+  function preco(v) { return 'R$ ' + Number(v).toFixed(2).replace('.', ','); }
+
+  function vitrineDeJoias(sel) {
+    var mostrar = sel.mostrar, temLanc = sel.temLanc;
+    if (!mostrar.length) return;   // fica a vitrine escrita no HTML
     $('joiasGrid').innerHTML = mostrar.map(function (p) {
       return '<a href="produto.html?id=' + encodeURIComponent(p.id) + '" class="partner-card">' +
         '<div class="pc-img"><img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy">' +
@@ -268,6 +277,57 @@
     $('joiasStripLink').textContent = temLanc ? 'Ver todos os lançamentos →' : 'Ver todas →';
     $('joiasCta').href = temLanc ? 'joias.html#lancamentos' : 'joias.html';
     $('joiasCta').textContent = temLanc ? 'Ver Lançamentos' : 'Ver as Joias';
+  }
+
+  /* Botão flutuante "Lançamentos": abre um painel com as fotos das peças.
+     Fecha no ×, no Esc ou clicando fora. */
+  function botaoLancamentos(sel) {
+    if (!sel.mostrar.length) return;
+    var temLanc = sel.temLanc;
+    var destino = temLanc ? 'joias.html#lancamentos' : 'joias.html';
+    var fab = document.createElement('div');
+    fab.className = 'launch-fab' + (temLanc ? ' has-new' : '');
+    fab.innerHTML =
+      '<button type="button" class="lf-btn" aria-expanded="false" aria-controls="lfPanel">' +
+        '<span class="lf-spark" aria-hidden="true">✦</span>' +
+        '<span class="lf-label">Lançamentos</span>' +
+        (temLanc ? '<span class="lf-count">' + sel.qtdLanc + '</span>' : '') +
+      '</button>' +
+      '<div class="lf-panel" id="lfPanel" role="dialog" aria-label="Lançamentos das joias parceiras" hidden>' +
+        '<div class="lf-head"><div>' +
+          '<p class="lf-kicker">Joias parceiras · JS Joias</p>' +
+          '<h3>' + (temLanc ? 'Acabaram de <em>chegar</em>' : 'Novidades <em>em breve</em>') + '</h3>' +
+          (temLanc ? '' : '<p class="lf-note">Enquanto isso, veja os destaques da coleção.</p>') +
+        '</div><button type="button" class="lf-close" aria-label="Fechar">×</button></div>' +
+        '<div class="lf-items">' + sel.mostrar.map(function (p, i) {
+          return '<a class="lf-item" href="produto.html?id=' + encodeURIComponent(p.id) + '" style="--i:' + i + '">' +
+            '<span class="lf-img"><img src="' + esc(p.image) + '" alt="" loading="lazy"></span>' +
+            '<span class="lf-name">' + esc(p.name) + '</span><span class="lf-price">' + preco(p.price) + '</span></a>';
+        }).join('') + '</div>' +
+        '<a class="btn btn-marsala lf-cta" href="' + destino + '">' + (temLanc ? 'Ver todos os lançamentos' : 'Ver as joias') + ' →</a>' +
+      '</div>';
+    document.body.appendChild(fab);
+
+    var btn = fab.querySelector('.lf-btn');
+    var painel = fab.querySelector('.lf-panel');
+    function abrir(sim) {
+      fab.classList.toggle('is-open', sim);
+      btn.setAttribute('aria-expanded', sim);
+      if (sim) {
+        painel.hidden = false;
+        void painel.offsetWidth;          // deixa a animação de entrada acontecer
+        painel.classList.add('is-in');
+      } else {
+        painel.classList.remove('is-in');
+        setTimeout(function () { if (!fab.classList.contains('is-open')) painel.hidden = true; }, 260);
+      }
+    }
+    btn.addEventListener('click', function () { abrir(!fab.classList.contains('is-open')); });
+    fab.querySelector('.lf-close').addEventListener('click', function () { abrir(false); btn.focus(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && fab.classList.contains('is-open')) { abrir(false); btn.focus(); } });
+    document.addEventListener('click', function (e) { if (fab.classList.contains('is-open') && !fab.contains(e.target)) abrir(false); });
+    // Entra depois que a capa aparece
+    setTimeout(function () { fab.classList.add('is-visible'); }, 1200);
   }
 
   function avisoDePrevia() {

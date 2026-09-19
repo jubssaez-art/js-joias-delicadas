@@ -1295,8 +1295,9 @@ button:focus-visible {
 /* Selo de prévia: aparece só no navegador de quem salvou a prévia no painel */
 .preview-flag {
   position: fixed;
-  left: 16px;
-  bottom: 16px;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
   z-index: 300;
   display: flex;
   align-items: center;
@@ -1319,3 +1320,161 @@ button:focus-visible {
   cursor: pointer;
 }
 .preview-flag button:hover { background: var(--cream); color: var(--marsala-deep); }
+/* ===========================
+   BOTÃO FLUTUANTE "LANÇAMENTOS"
+   Pílula marsala no canto esquerdo (o WhatsApp fica no direito): entra
+   depois da capa, tem um brilho que passa, estrela girando e um anel que
+   pulsa quando há lançamentos. Abre um painel com as fotos das peças.
+   =========================== */
+.launch-fab {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 95;
+  opacity: 0;
+  transform: translateY(24px) scale(0.9);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  pointer-events: none;
+}
+.launch-fab.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+
+.lf-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px 13px 16px;
+  border: 1px solid rgba(243,234,219,0.25);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--marsala) 0%, var(--marsala-deep) 100%);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(62,23,28,0.35);
+  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1.2), box-shadow 0.35s ease;
+}
+/* brilho que atravessa o botão */
+.lf-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: skewX(-20deg);
+  animation: lfBrilho 3.6s ease-in-out infinite;
+}
+@keyframes lfBrilho { 0%, 55% { left: -60%; } 85%, 100% { left: 130%; } }
+.lf-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 16px 40px rgba(62,23,28,0.45); }
+.lf-btn:active { transform: scale(0.97); }
+
+/* anel pulsante (só quando há lançamentos) */
+.launch-fab.has-new .lf-btn::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(185,118,122,0.6);
+  animation: lfPulso 2.4s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes lfPulso { 0% { box-shadow: 0 0 0 0 rgba(185,118,122,0.55); } 100% { box-shadow: 0 0 0 16px rgba(185,118,122,0); } }
+
+.lf-spark {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  color: var(--antique);
+  animation: lfEstrela 5s linear infinite;
+}
+@keyframes lfEstrela {
+  0% { transform: rotate(0) scale(1); }
+  50% { transform: rotate(180deg) scale(1.25); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+.lf-btn:hover .lf-spark { animation-duration: 1.4s; }
+.lf-label { position: relative; }
+.lf-count {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--marsala-deep);
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.launch-fab.is-open .lf-btn::before,
+.launch-fab.is-open .lf-btn::after { animation-play-state: paused; }
+
+/* Painel */
+.lf-panel {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 14px);
+  width: 360px;
+  max-height: calc(100vh - 110px);
+  max-height: calc(100dvh - 110px);
+  overflow-y: auto;
+  padding: 22px 22px 20px;
+  background: var(--cream-light);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(30,8,12,0.28);
+  transform-origin: bottom left;
+  opacity: 0;
+  transform: translateY(12px) scale(0.94);
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1.1);
+}
+.lf-panel.is-in { opacity: 1; transform: none; }
+.lf-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+.lf-kicker { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--marsala); margin-bottom: 4px; }
+.lf-head h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 400; line-height: 1.1; color: var(--marsala-deep); }
+.lf-head h3 em { color: var(--marsala); }
+.lf-note { font-size: 12.5px; color: var(--text-light); margin-top: 4px; }
+.lf-close {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--marsala-deep);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.lf-close:hover { background: var(--marsala); border-color: var(--marsala); color: var(--cream); }
+.lf-items { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+.lf-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.lf-panel.is-in .lf-item { opacity: 1; transform: none; transition-delay: calc(0.08s + var(--i) * 0.07s); }
+.lf-img { display: block; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; background: var(--cream); margin-bottom: 6px; }
+.lf-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.lf-item:hover .lf-img img { transform: scale(1.07); }
+.lf-name { font-family: var(--font-serif); font-size: 15px; line-height: 1.2; color: var(--marsala-deep); }
+.lf-price { font-size: 12.5px; font-weight: 500; color: var(--marsala); }
+.lf-cta { width: 100%; }
+
+@media (max-width: 640px) {
+  .launch-fab { left: 16px; bottom: 18px; }
+  .lf-btn { padding: 12px 16px 12px 14px; font-size: 11px; letter-spacing: 1.5px; }
+  .lf-panel { position: fixed; left: 12px; right: 12px; bottom: 84px; width: auto; }
+}
