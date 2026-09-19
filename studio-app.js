@@ -188,27 +188,16 @@
       }
     }
 
-    // Joias parceiras (conteúdo da aba Joias)
-    var J = S.joias || {};
-    var joiasOn = J.visivel !== false;
-    if ($('joias')) {
-      if (J.titulo) $('joiasTitle').innerHTML = fmt(J.titulo);
-      if (J.texto) $('joiasText').innerHTML = fmt(J.texto);
-      if (joiasOn) {
-        var selecao = selecionarJoias();
-        vitrineDeJoias(selecao);
-        if (J.botao !== false) botaoLancamentos(selecao);
-      }
-    }
+    // Botão flutuante de lançamentos das joias
+    if ((S.joias || {}).botao !== false) botaoLancamentos(selecionarJoias());
 
-    // Produtos: uma aba por categoria cadastrada no painel + a aba Joias
+    // Produtos: uma aba por categoria cadastrada no painel
     if ($('prodPanes')) {
       var P = S.produtos || {};
       if (P.titulo) $('prodTitle').innerHTML = fmt(P.titulo);
       if ($('prodSub')) { $('prodSub').innerHTML = fmt(P.subtitulo || ''); $('prodSub').hidden = !P.subtitulo; }
       var ICONE_CAT = { maquiagem: 'espelho', skincare: 'gota', cabelo: 'folha' };
       var itensP = (P.itens || []).filter(function (x) { return x && x.visivel !== false && String(x.nome || '').trim(); });
-      var joiasPane = $('joias');
       var abasP = (P.categorias || []).filter(function (c) { return c && c.visivel !== false; }).map(function (c) {
         var meus = itensP.filter(function (x) { return x.categoria === c.id; });
         var ic = c.icone || ICONE_CAT[c.id] || 'estrela';
@@ -229,9 +218,6 @@
             '<a href="' + wa('Olá! Quais produtos de ' + c.nome.toLowerCase() + ' vocês têm disponíveis?') + '" target="_blank" rel="noopener" class="btn btn-outline">Perguntar no WhatsApp</a></div>';
         return { id: c.id, rotulo: '<span class="ct-ico">' + icone(ic, 1.5) + '</span>' + esc(c.nome), html: html, vazio: !meus.length };
       });
-      if (joiasOn && joiasPane) {
-        abasP.push({ id: 'joias', rotulo: '<span class="ct-ico">' + icone('estrela', 1.5) + '</span>Joias', no: joiasPane });
-      }
       $('produtos').hidden = !abasP.length;
       if (abasP.length) {
         // Abre na primeira aba com produtos (as vazias continuam acessíveis)
@@ -322,24 +308,6 @@
   }
 
   function preco(v) { return 'R$ ' + Number(v).toFixed(2).replace('.', ','); }
-
-  function vitrineDeJoias(sel) {
-    var mostrar = sel.mostrar, temLanc = sel.temLanc;
-    if (!mostrar.length) return;   // fica a vitrine escrita no HTML
-    $('joiasGrid').innerHTML = mostrar.map(function (p) {
-      return '<a href="produto.html?id=' + encodeURIComponent(p.id) + '" class="partner-card">' +
-        '<div class="pc-img"><img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy">' +
-        (temLanc ? '<span class="pc-badge">Lançamento</span>' : '') + '</div>' +
-        '<div class="pc-info"><span class="pc-tag">' + esc(p.tag || '') + '</span><h3>' + esc(p.name) + '</h3>' +
-        '<span class="pc-price">' + preco(p.price) + '</span></div></a>';
-    }).join('');
-    $('joiasGrid').style.setProperty('--n', mostrar.length);
-    $('joiasStripLabel').textContent = temLanc ? '✦ Lançamentos' : '✦ Destaques da coleção';
-    $('joiasStripLink').href = temLanc ? 'joias.html#lancamentos' : 'joias.html';
-    $('joiasStripLink').textContent = temLanc ? 'Ver todos os lançamentos →' : 'Ver todas →';
-    $('joiasCta').href = temLanc ? 'joias.html#lancamentos' : 'joias.html';
-    $('joiasCta').textContent = temLanc ? 'Ver Lançamentos' : 'Ver as Joias';
-  }
 
   /* Botão flutuante "Lançamentos": abre um painel com as fotos das peças.
      Fecha no ×, no Esc ou clicando fora. */
@@ -441,25 +409,17 @@
     return { abrir: abrir };
   }
 
-  // Links "#servico-<área>" abrem a aba da área no catálogo; "#joias" abre a aba Joias
+  // Links "#servico-<área>" abrem a aba da área no catálogo
   function ligarLinksDeAba() {
     document.addEventListener('click', function (e) {
-      var a = e.target.closest && e.target.closest('a[href^="#servico-"], a[href="#joias"]');
+      var a = e.target.closest && e.target.closest('a[href^="#servico-"]');
       if (!a) return;
       var alvo = a.getAttribute('href');
-      if (alvo === '#joias') {
-        if (!abasProd) return;
-        e.preventDefault();
-        abasProd.abrir('joias');
-        $('produtos').scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
       if (!abasSvc) return;
       e.preventDefault();
       abasSvc.abrir(alvo.slice('#servico-'.length));
       $('svcCatalog').scrollIntoView({ behavior: 'smooth' });
     });
-    if (location.hash === '#joias' && abasProd) abasProd.abrir('joias');
     var m = location.hash.match(/^#servico-(.+)$/);
     if (m && abasSvc) { abasSvc.abrir(m[1]); setTimeout(function () { $('svcCatalog').scrollIntoView(); }, 0); }
   }

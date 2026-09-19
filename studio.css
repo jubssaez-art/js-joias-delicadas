@@ -1034,76 +1034,10 @@ button:focus-visible {
 .areas-grid li.more { grid-column: 1 / -1; font-style: italic; color: rgba(243,234,219,0.6); }
 
 /* ===========================
-   JOIAS PARCEIRAS (vitrine dos lançamentos do catálogo)
+   SEÇÃO DE PRODUTOS (fundo e cartões)
    =========================== */
 .joias-section { padding: 110px 0; background: var(--cream-aged); }
-.partner-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 44px;
-}
-.partner-intro { max-width: 600px; }
-.partner-text { font-size: 15.5px; color: var(--text-light); }
-.partner-text strong { color: var(--marsala-dark); font-weight: 500; }
-.partner-lockup {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 18px 26px;
-  background: var(--cream-light);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-}
-.pl-brand {
-  display: flex;
-  flex-direction: column;
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--marsala-deep);
-}
-.pl-brand small {
-  font-family: var(--font-sans);
-  font-size: 8.5px;
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--marsala);
-  margin-top: 4px;
-}
-.pl-x { font-family: var(--font-serif); font-style: italic; font-size: 22px; color: var(--antique); }
-.pl-logo { height: 40px; width: auto; }
 
-.partner-strip-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 14px;
-  margin-bottom: 22px;
-  border-bottom: 1px solid rgba(62,23,28,0.14);
-}
-.partner-strip-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--marsala);
-}
-.partner-strip-link {
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--marsala-deep);
-  border-bottom: 1px solid transparent;
-  transition: var(--transition);
-}
-.partner-strip-link:hover { border-bottom-color: var(--marsala-deep); }
 
 /* --n = quantas peças vieram (até 4): com menos, os cartões ficam centralizados */
 .partner-grid {
@@ -1125,19 +1059,6 @@ button:focus-visible {
 .pc-img { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: var(--cream); }
 .pc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
 .partner-card:hover .pc-img img { transform: scale(1.05); }
-.pc-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 5px 11px;
-  background: var(--marsala);
-  color: var(--cream);
-  font-size: 9.5px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border-radius: 2px;
-}
 .pc-info { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 3px; }
 .pc-tag { font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
 .pc-info h3 {
@@ -1149,20 +1070,14 @@ button:focus-visible {
 }
 .pc-price { font-size: 14px; font-weight: 500; color: var(--marsala); margin-top: 4px; }
 
-.partner-ctas { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 44px; }
 
 @media (max-width: 900px) {
-  .partner-head { flex-direction: column; align-items: flex-start; gap: 24px; }
   .partner-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 }
 @media (max-width: 640px) {
   .joias-section { padding: 80px 0; }
-  .partner-lockup { padding: 12px 18px; gap: 12px; }
-  .pl-brand { font-size: 18px; }
-  .pl-logo { height: 32px; }
   .pc-info { padding: 12px 12px 14px; }
   .pc-info h3 { font-size: 16px; }
-  .partner-ctas .btn { width: 100%; }
 }
 /* ===========================
    FOOTER

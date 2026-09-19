@@ -152,7 +152,7 @@ window.STUDIO = {
   },
   "produtos": {
     "titulo": "Nossos *produtos*",
-    "subtitulo": "Produtos selecionados para continuar o cuidado em casa, e as joias da nossa parceira.",
+    "subtitulo": "Produtos selecionados para continuar o cuidado em casa.",
     "categorias": [
       { "id": "maquiagem", "nome": "Maquiagem", "visivel": true },
       { "id": "skincare", "nome": "Skincare", "visivel": true },
