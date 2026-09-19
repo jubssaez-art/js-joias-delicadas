@@ -20,6 +20,7 @@
   } catch (e) { /* sem storage: segue com os publicados */ }
 
   var ICONES = window.STUDIO_ICONES || {};
+  var abasSvc = null, abasProd = null;   // controles das abas dos catálogos
   var GRADS = window.STUDIO_GRADIENTES || [['#8c3b43', '#3e171c']];
 
   function $(id) { return document.getElementById(id); }
@@ -102,7 +103,7 @@
 
     function linkMais(a) {
       if (a.id === 'laser' && laserOn) return { href: '#laser', texto: 'Ver áreas atendidas →', externo: false };
-      return { href: '#card-' + a.id, texto: 'Todos os serviços →', externo: false };
+      return { href: '#servico-' + a.id, texto: 'Todos os serviços →', externo: false };
     }
 
     // Carrossel
@@ -133,19 +134,39 @@
       if ($('acTotal')) $('acTotal').textContent = dois(total);
     }
 
-    // Grade de cartões
-    if ($('servicesGrid')) {
-      $('servicesGrid').innerHTML = areas.map(function (a, i) {
-        var link = a.id === 'laser' && laserOn
-          ? '<a href="#laser" class="service-link">Ver áreas atendidas →</a>'
-          : '<a href="' + wa(a.mensagem) + '" target="_blank" rel="noopener" class="service-link">Agendar →</a>';
-        return '<article class="service-card reveal" id="card-' + esc(a.id) + '"><span class="service-num">' + dois(i + 1) + '</span>' +
-          '<div class="service-icon">' + icone(a.icone, 1.5) + '</div>' +
-          '<h3>' + esc(a.nome) + '</h3>' +
-          (a.descricao ? '<p>' + fmt(a.descricao) + '</p>' : '') +
-          (lista(a.servicos).length ? '<ul class="service-tags">' + lista(a.servicos).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' : '') +
-          link + '</article>';
-      }).join('');
+    // Catálogo de serviços: uma aba por área, um cartão por serviço (sem preço)
+    if ($('svcPanes') && areas.length) {
+      var cs = S.catalogoServicos || {};
+      if (cs.titulo) $('svcTitle').innerHTML = fmt(cs.titulo);
+      if ($('svcSub')) { $('svcSub').innerHTML = fmt(cs.subtitulo || ''); $('svcSub').hidden = !cs.subtitulo; }
+      abasSvc = montarAbas($('svcTabs'), $('svcPanes'), 'svc', areas.map(function (a, ai) {
+        var g = GRADS[ai % GRADS.length];
+        var itens = (a.servicos || []).map(function (s) { return typeof s === 'string' ? { nome: s } : s; })
+          .filter(function (s) { return s && String(s.nome || '').trim(); });
+        var topo = '<div class="svc-pane-head"><div>' +
+          '<p class="svc-pane-kicker">' + dois(ai + 1) + ' · ' + esc(a.legenda || 'Studio Miura') + '</p>' +
+          '<h4>' + fmt(a.titulo || a.nome) + '</h4>' +
+          (a.descricao ? '<p>' + fmt(a.descricao) + '</p>' : '') + '</div>' +
+          '<div class="svc-pane-actions">' +
+          (a.id === 'laser' && laserOn ? '<a href="#laser" class="ac-more">Ver áreas atendidas →</a>' : '') +
+          '<a href="' + wa(a.mensagem) + '" target="_blank" rel="noopener" class="btn btn-marsala">' + esc(a.botao || 'Agendar') + '</a></div></div>';
+        var cards = itens.map(function (s, si) {
+          var msg = 'Olá! Gostaria de agendar: ' + s.nome + ' (' + a.nome + ').';
+          var arte = s.foto
+            ? '<img src="' + esc(s.foto) + '" alt="' + esc(s.nome) + '" loading="lazy">'
+            : '<span class="svc-num">' + dois(si + 1) + '</span><span class="svc-ico">' + icone(a.icone, 0.8) + '</span>';
+          return '<article class="svc-card" style="--g1:' + g[0] + ';--g2:' + g[1] + ';--i:' + si + '">' +
+            '<div class="svc-art' + (s.foto ? ' has-photo' : '') + '">' + arte + '</div>' +
+            '<div class="svc-info"><span class="svc-area">' + esc(a.aba || a.nome) + '</span>' +
+            '<h5>' + esc(s.nome) + '</h5>' + (s.descricao ? '<p>' + fmt(s.descricao) + '</p>' : '') +
+            '<a href="' + wa(msg) + '" target="_blank" rel="noopener" class="svc-link">Agendar →</a></div></article>';
+        }).join('');
+        return {
+          id: a.id,
+          rotulo: '<span class="ct-ico">' + icone(a.icone, 1.5) + '</span>' + esc(a.aba || a.nome),
+          html: topo + (cards ? '<div class="svc-grid">' + cards + '</div>' : '')
+        };
+      }));
     }
 
     // Depilação a laser (seção de destaque)
@@ -167,22 +188,62 @@
       }
     }
 
-    // Joias parceiras
-    if ($('joias') && S.joias) {
-      $('joias').hidden = S.joias.visivel === false;
-      if (S.joias.titulo) $('joiasTitle').innerHTML = fmt(S.joias.titulo);
-      if (S.joias.texto) $('joiasText').innerHTML = fmt(S.joias.texto);
-      if (S.joias.visivel !== false) {
+    // Joias parceiras (conteúdo da aba Joias)
+    var J = S.joias || {};
+    var joiasOn = J.visivel !== false;
+    if ($('joias')) {
+      if (J.titulo) $('joiasTitle').innerHTML = fmt(J.titulo);
+      if (J.texto) $('joiasText').innerHTML = fmt(J.texto);
+      if (joiasOn) {
         var selecao = selecionarJoias();
         vitrineDeJoias(selecao);
-        if (S.joias.botao !== false) botaoLancamentos(selecao);
+        if (J.botao !== false) botaoLancamentos(selecao);
+      }
+    }
+
+    // Produtos: uma aba por categoria cadastrada no painel + a aba Joias
+    if ($('prodPanes')) {
+      var P = S.produtos || {};
+      if (P.titulo) $('prodTitle').innerHTML = fmt(P.titulo);
+      if ($('prodSub')) { $('prodSub').innerHTML = fmt(P.subtitulo || ''); $('prodSub').hidden = !P.subtitulo; }
+      var ICONE_CAT = { maquiagem: 'espelho', skincare: 'gota', cabelo: 'folha' };
+      var itensP = (P.itens || []).filter(function (x) { return x && x.visivel !== false && String(x.nome || '').trim(); });
+      var joiasPane = $('joias');
+      var abasP = (P.categorias || []).filter(function (c) { return c && c.visivel !== false; }).map(function (c) {
+        var meus = itensP.filter(function (x) { return x.categoria === c.id; });
+        var ic = c.icone || ICONE_CAT[c.id] || 'estrela';
+        var html = meus.length
+          ? '<div class="partner-grid prod-grid" style="--n:' + Math.min(4, meus.length) + '">' + meus.map(function (x) {
+              var msg = 'Olá! Tenho interesse no produto ' + x.nome + (x.marca ? ' (' + x.marca + ')' : '') + '.';
+              return '<a href="' + wa(msg) + '" target="_blank" rel="noopener" class="partner-card">' +
+                '<div class="pc-img">' + (x.foto ? '<img src="' + esc(x.foto) + '" alt="' + esc(x.nome) + '" loading="lazy">'
+                  : '<span class="pc-placeholder">' + icone(ic, 0.8) + '</span>') + '</div>' +
+                '<div class="pc-info"><span class="pc-tag">' + esc(x.marca || c.nome) + '</span><h3>' + esc(x.nome) + '</h3>' +
+                (x.descricao ? '<p class="pc-desc">' + fmt(x.descricao) + '</p>' : '') +
+                '<span class="pc-price">' + (x.preco ? esc(x.preco) : 'Consulte') + '</span>' +
+                '<span class="pc-link">Quero este →</span></div></a>';
+            }).join('') + '</div>'
+          : '<div class="cat-empty"><span class="cat-empty-ico">' + icone(ic, 0.9) + '</span>' +
+            '<h4>' + esc(c.nome) + ' <em>em breve</em></h4>' +
+            '<p>Estamos selecionando os produtos desta linha. Pergunte no WhatsApp o que já temos disponível no Studio.</p>' +
+            '<a href="' + wa('Olá! Quais produtos de ' + c.nome.toLowerCase() + ' vocês têm disponíveis?') + '" target="_blank" rel="noopener" class="btn btn-outline">Perguntar no WhatsApp</a></div>';
+        return { id: c.id, rotulo: '<span class="ct-ico">' + icone(ic, 1.5) + '</span>' + esc(c.nome), html: html, vazio: !meus.length };
+      });
+      if (joiasOn && joiasPane) {
+        abasP.push({ id: 'joias', rotulo: '<span class="ct-ico">' + icone('estrela', 1.5) + '</span>Joias', no: joiasPane });
+      }
+      $('produtos').hidden = !abasP.length;
+      if (abasP.length) {
+        // Abre na primeira aba com produtos (as vazias continuam acessíveis)
+        var inicial = abasP.filter(function (a) { return !a.vazio; })[0] || abasP[0];
+        abasProd = montarAbas($('prodTabs'), $('prodPanes'), 'prod', abasP, inicial.id);
       }
     }
 
     // Rodapé
     if ($('footerServices')) {
       $('footerServices').innerHTML = areas.map(function (a) {
-        var href = a.id === 'laser' && laserOn ? '#laser' : '#card-' + a.id;
+        var href = a.id === 'laser' && laserOn ? '#laser' : '#servico-' + a.id;
         return '<li><a href="' + href + '">' + esc(a.nome) + '</a></li>';
       }).join('');
     }
@@ -206,6 +267,7 @@
       if ($('footerAddr')) $('footerAddr').textContent = ct.endereco;
     }
 
+    ligarLinksDeAba();
     if (emPrevia) avisoDePrevia();
   }
 
@@ -328,6 +390,78 @@
     document.addEventListener('click', function (e) { if (fab.classList.contains('is-open') && !fab.contains(e.target)) abrir(false); });
     // Entra depois que a capa aparece
     setTimeout(function () { fab.classList.add('is-visible'); }, 1200);
+  }
+
+  /* Abas de catálogo (serviços e produtos). Cada item: { id, rotulo (HTML),
+     html } para criar o painel, ou { id, rotulo, no } para reaproveitar um
+     elemento que já está na página. Devolve { abrir(id) }. */
+  function montarAbas(barra, paineis, prefixo, itens, inicialId) {
+    var nos = itens.map(function (it) {
+      var el = it.no || document.createElement('div');
+      if (!it.no) { el.innerHTML = it.html; el.id = prefixo + '-' + it.id; }
+      el.classList.add('cat-pane');
+      el.setAttribute('role', 'tabpanel');
+      el.setAttribute('aria-labelledby', prefixo + '-tab-' + it.id);
+      return el;
+    });
+    paineis.innerHTML = '';
+    nos.forEach(function (el) { paineis.appendChild(el); });
+    barra.innerHTML = itens.map(function (it) {
+      return '<button type="button" class="cat-tab" role="tab" id="' + prefixo + '-tab-' + esc(it.id) + '" aria-controls="' +
+        nos[itens.indexOf(it)].id + '" data-id="' + esc(it.id) + '">' + it.rotulo + '</button>';
+    }).join('');
+    var botoes = barra.querySelectorAll('.cat-tab');
+
+    function abrir(id, foco) {
+      var achou = false;
+      itens.forEach(function (it, k) {
+        var ativo = it.id === id;
+        if (ativo) achou = true;
+        botoes[k].classList.toggle('is-active', ativo);
+        botoes[k].setAttribute('aria-selected', ativo);
+        botoes[k].tabIndex = ativo ? 0 : -1;
+        nos[k].hidden = !ativo;
+        nos[k].classList.remove('is-in');
+        if (ativo) { void nos[k].offsetWidth; nos[k].classList.add('is-in'); }
+        if (ativo && foco) botoes[k].focus();
+        if (ativo) barra.scrollTo({ left: botoes[k].offsetLeft - (barra.clientWidth - botoes[k].offsetWidth) / 2, behavior: 'smooth' });
+      });
+      if (!achou && itens.length) abrir(itens[0].id, foco);
+    }
+    botoes.forEach(function (b, k) {
+      b.addEventListener('click', function () { abrir(itens[k].id); });
+      b.addEventListener('keydown', function (e) {
+        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault();
+        abrir(itens[(k + d + itens.length) % itens.length].id, true);
+      });
+    });
+    abrir(inicialId || (itens[0] && itens[0].id));
+    return { abrir: abrir };
+  }
+
+  // Links "#servico-<área>" abrem a aba da área no catálogo; "#joias" abre a aba Joias
+  function ligarLinksDeAba() {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#servico-"], a[href="#joias"]');
+      if (!a) return;
+      var alvo = a.getAttribute('href');
+      if (alvo === '#joias') {
+        if (!abasProd) return;
+        e.preventDefault();
+        abasProd.abrir('joias');
+        $('produtos').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      if (!abasSvc) return;
+      e.preventDefault();
+      abasSvc.abrir(alvo.slice('#servico-'.length));
+      $('svcCatalog').scrollIntoView({ behavior: 'smooth' });
+    });
+    if (location.hash === '#joias' && abasProd) abasProd.abrir('joias');
+    var m = location.hash.match(/^#servico-(.+)$/);
+    if (m && abasSvc) { abasSvc.abrir(m[1]); setTimeout(function () { $('svcCatalog').scrollIntoView(); }, 0); }
   }
 
   function avisoDePrevia() {

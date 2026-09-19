@@ -49,6 +49,7 @@
                 <a href="#studio" class="nav-link">O Studio</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#laser" class="nav-link">Depilação a Laser</a>
+                <a href="#produtos" class="nav-link">Produtos</a>
                 <a href="#contato" class="nav-link">Contato</a>
             </nav>
             <div class="nav-actions">
@@ -69,6 +70,7 @@
             <a href="#studio" class="mobile-nav-link">O Studio</a>
             <a href="#servicos" class="mobile-nav-link">Serviços</a>
             <a href="#laser" class="mobile-nav-link">Depilação a Laser</a>
+            <a href="#produtos" class="mobile-nav-link">Produtos</a>
             <a href="#contato" class="mobile-nav-link">Contato</a>
         </nav>
         <a href="joias.html" class="btn btn-outline">✦ Catálogo de Joias</a>
@@ -286,8 +288,16 @@
                     </div>
                 </div>
             </div>
-
-            <div class="services-grid" id="servicesGrid">
+            <!-- CATÁLOGO DE SERVIÇOS -->
+            <div class="svc-catalog" id="svcCatalog">
+                <div class="svc-catalog-head reveal">
+                    <div class="section-label">Catálogo</div>
+                    <h3 class="svc-catalog-title" id="svcTitle">Catálogo de <em>serviços</em></h3>
+                    <p class="svc-catalog-sub" id="svcSub">Escolha a área e veja tudo o que fazemos. O valor é passado no atendimento, conforme avaliação.</p>
+                </div>
+                <div class="cat-tabs reveal" role="tablist" aria-label="Áreas do catálogo" id="svcTabs"></div>
+                <div class="cat-panes" id="svcPanes">
+                    <div class="services-grid" id="servicesGrid">
 
                 <article class="service-card reveal" id="card-laser">
                     <span class="service-num">01</span>
@@ -355,6 +365,8 @@
                     <a href="https://wa.me/5541997117882?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20massagem." target="_blank" rel="noopener" class="service-link">Agendar →</a>
                 </article>
 
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -392,9 +404,17 @@
         </div>
     </section>
 
-    <!-- JOIAS PARCEIRAS: vitrine dos lançamentos do catálogo -->
-    <section class="joias-section" id="joias">
+    <!-- PRODUTOS: abas Maquiagem / Skincare / Cabelo (painel) e Joias (catálogo parceiro) -->
+    <section class="joias-section products-studio" id="produtos">
         <div class="container">
+            <div class="section-head reveal">
+                <div class="section-label">Loja do Studio</div>
+                <h2 class="section-title" id="prodTitle">Nossos <em>produtos</em></h2>
+                <p class="section-subtitle" id="prodSub">Produtos selecionados para continuar o cuidado em casa, e as joias da nossa parceira.</p>
+            </div>
+            <div class="cat-tabs cat-tabs-center reveal" role="tablist" aria-label="Categorias de produtos" id="prodTabs"></div>
+            <div class="cat-panes" id="prodPanes">
+                <div class="cat-pane" id="joias" role="tabpanel">
             <div class="partner-head reveal">
                 <div class="partner-intro">
                     <div class="section-label">Parceria Studio Miura</div>
@@ -421,6 +441,8 @@
             <div class="partner-ctas reveal">
                 <a href="joias.html#lancamentos" class="btn btn-marsala" id="joiasCta">Ver Lançamentos</a>
                 <a href="joias.html" class="btn btn-outline">Catálogo Completo</a>
+            </div>
+                </div>
             </div>
         </div>
     </section>

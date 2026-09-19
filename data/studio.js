@@ -146,6 +146,20 @@ window.STUDIO = {
     "areas": ["Axilas", "Virilha", "Pernas", "Meia perna", "Braços", "Antebraços", "Buço", "Queixo", "Rosto", "Linha abdominal", "Abdômen", "Costas", "Tórax", "Glúteos", "Outras regiões"],
     "mensagem": "Olá! Gostaria de agendar uma avaliação para depilação a laser."
   },
+  "catalogoServicos": {
+    "titulo": "Catálogo de *serviços*",
+    "subtitulo": "Escolha a área e veja tudo o que fazemos. O valor é passado no atendimento, conforme avaliação."
+  },
+  "produtos": {
+    "titulo": "Nossos *produtos*",
+    "subtitulo": "Produtos selecionados para continuar o cuidado em casa, e as joias da nossa parceira.",
+    "categorias": [
+      { "id": "maquiagem", "nome": "Maquiagem", "visivel": true },
+      { "id": "skincare", "nome": "Skincare", "visivel": true },
+      { "id": "cabelo", "nome": "Cabelo", "visivel": true }
+    ],
+    "itens": []
+  },
   "joias": {
     "visivel": true,
     "botao": true,

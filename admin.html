@@ -109,7 +109,7 @@
                     <div class="admin-section-head">
                         <div>
                             <h2>Áreas e Serviços</h2>
-                            <p>Cada área vira um slide do carrossel e um cartão da grade. Clique numa área para editar; use as setas para mudar a ordem.</p>
+                            <p>Cada área vira um slide do carrossel e uma aba do catálogo de serviços; cada serviço da lista vira um cartão com botão de agendar. Clique numa área para editar; use as setas para mudar a ordem.</p>
                         </div>
                         <button type="button" class="btn btn-gold" id="stAddArea">＋ Adicionar área</button>
                     </div>
@@ -117,6 +117,10 @@
                         <div class="config-grid">
                             <div class="config-field"><label for="stSTit">Título da seção</label><input type="text" id="stSTit" data-k="servicos.titulo"></div>
                             <div class="config-field"><label for="stSSub">Subtítulo da seção</label><input type="text" id="stSSub" data-k="servicos.subtitulo"></div>
+                        </div>
+                        <div class="config-grid">
+                            <div class="config-field"><label for="stCSTit">Título do catálogo de serviços</label><input type="text" id="stCSTit" data-k="catalogoServicos.titulo"></div>
+                            <div class="config-field"><label for="stCSSub">Texto do catálogo de serviços</label><input type="text" id="stCSSub" data-k="catalogoServicos.subtitulo"></div>
                         </div>
                     </div>
                     <div class="area-list" id="stAreas"></div>
@@ -140,6 +144,23 @@
                     </div>
                 </section>
 
+                <section class="admin-section">
+                    <div class="admin-section-head">
+                        <div>
+                            <h2>Produtos do Studio</h2>
+                            <p>Maquiagem, skincare e cabelo, cada categoria numa aba do site (a aba Joias vem do catálogo de joias). O botão do produto abre o WhatsApp com o nome dele.</p>
+                        </div>
+                        <button type="button" class="btn btn-gold" id="stAddProd">＋ Adicionar produto</button>
+                    </div>
+                    <div class="admin-config">
+                        <div class="config-grid">
+                            <div class="config-field"><label for="stPTit">Título da seção</label><input type="text" id="stPTit" data-k="produtos.titulo"></div>
+                            <div class="config-field"><label for="stPSub">Subtítulo da seção</label><input type="text" id="stPSub" data-k="produtos.subtitulo"></div>
+                        </div>
+                        <div class="config-field"><label>Categorias <small>(renomeie ou desligue as abas)</small></label><div class="prod-cats" id="stProdCats"></div></div>
+                    </div>
+                    <div class="prod-list" id="stProdList"></div>
+                </section>
                 <section class="admin-section">
                     <div class="admin-section-head">
                         <div>

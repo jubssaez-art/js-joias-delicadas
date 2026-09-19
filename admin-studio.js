@@ -48,6 +48,14 @@
   edits.areas = edits.areas || [];
   edits.laser = edits.laser || { visivel: true };
   edits.joias = edits.joias || { visivel: true };
+  edits.catalogoServicos = edits.catalogoServicos || {};
+  edits.produtos = edits.produtos || {};
+  edits.produtos.categorias = edits.produtos.categorias || [
+    { id: 'maquiagem', nome: 'Maquiagem', visivel: true },
+    { id: 'skincare', nome: 'Skincare', visivel: true },
+    { id: 'cabelo', nome: 'Cabelo', visivel: true }
+  ];
+  edits.produtos.itens = edits.produtos.itens || [];
 
   const abertas = new Set();   // áreas com o editor aberto
 
@@ -66,7 +74,7 @@
   }
   const paraCampo = {
     texto: v => v == null ? '' : String(v),
-    linhas: v => (v || []).join('\n'),
+    linhas: v => (v || []).map(x => (x && typeof x === 'object') ? x.nome : x).join('\n'),
     paragrafos: v => (v || []).join('\n\n'),
     etapas: v => (v || []).map(e => e.texto ? `${e.titulo}: ${e.texto}` : e.titulo).join('\n'),
     bool: v => v !== false
@@ -113,7 +121,7 @@
     { k: 'botao', rotulo: 'Texto do botão', meio: true },
     { k: 'descricao', rotulo: 'Descrição no cartão', tipo: 'area', linhas: 2 },
     { k: 'texto', rotulo: 'Texto no carrossel', tipo: 'area', linhas: 2 },
-    { k: 'servicos', rotulo: 'Serviços da área <small>(um por linha — viram as etiquetas do cartão)</small>', tipo: 'area', t: 'linhas', linhas: 6, meio: true },
+    { k: 'servicos', rotulo: 'Serviços da área <small>(um por linha — cada um vira um cartão do catálogo)</small>', tipo: 'area', t: 'linhas', linhas: 6, meio: true },
     { k: 'destaques', rotulo: 'Destaques do carrossel <small>(um por linha, até 4 fica melhor)</small>', tipo: 'area', t: 'linhas', linhas: 6, meio: true },
     { k: 'mensagem', rotulo: 'Mensagem que chega no WhatsApp ao agendar' }
   ];
@@ -230,6 +238,117 @@
     status('✦ Área adicionada no fim da lista — preencha e depois salve a prévia ou publique.', 'ok');
   });
 
+  // ===== PRODUTOS =====
+  const CAMPOS_PROD = [
+    { k: 'nome', rotulo: 'Nome do produto' },
+    { k: 'marca', rotulo: 'Marca <small>(opcional)</small>' },
+    { k: 'preco', rotulo: 'Preço <small>(opcional — ex.: R$ 49,90; vazio mostra "Consulte")</small>' },
+    { k: 'descricao', rotulo: 'Descrição curta <small>(opcional)</small>', area: true }
+  ];
+
+  function comprimirFoto(arquivo) {
+    return new Promise(resolve => {
+      const img = new Image();
+      const url = URL.createObjectURL(arquivo);
+      img.onload = () => {
+        const escala = Math.min(1, 800 / Math.max(img.width, img.height));
+        const cv = document.createElement('canvas');
+        cv.width = Math.round(img.width * escala);
+        cv.height = Math.round(img.height * escala);
+        cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+        URL.revokeObjectURL(url);
+        resolve(cv.toDataURL('image/jpeg', 0.82));
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); resolve(null); };
+      img.src = url;
+    });
+  }
+
+  function renderCategorias() {
+    const box = $('stProdCats');
+    box.innerHTML = edits.produtos.categorias.map((c, i) => `
+      <div class="prod-cat${c.visivel === false ? ' is-off' : ''}" data-i="${i}">
+        <label class="switch" title="Mostrar esta aba no site"><input type="checkbox" data-cf="visivel"${c.visivel === false ? '' : ' checked'}><span class="slider"></span></label>
+        <input type="text" data-cf="nome" value="${esc(c.nome)}">
+        <span class="prod-cat-n">${edits.produtos.itens.filter(x => x.categoria === c.id).length}</span>
+      </div>`).join('');
+    box.querySelectorAll('.prod-cat').forEach(el => {
+      const c = edits.produtos.categorias[+el.dataset.i];
+      el.querySelector('[data-cf="visivel"]').addEventListener('change', e => { c.visivel = e.target.checked; el.classList.toggle('is-off', !c.visivel); atualizar(); });
+      el.querySelector('[data-cf="nome"]').addEventListener('input', e => {
+        c.nome = e.target.value.trim() || c.nome;
+        document.querySelectorAll(`#stProdList option[value="${c.id}"]`).forEach(o => { o.textContent = c.nome; });
+        atualizar();
+      });
+    });
+  }
+
+  function renderProdutos() {
+    const box = $('stProdList');
+    const itens = edits.produtos.itens;
+    const cats = edits.produtos.categorias;
+    box.innerHTML = itens.length ? itens.map((x, i) => `
+      <div class="prod-item${x.visivel === false ? ' is-off' : ''}" data-i="${i}">
+        <button type="button" class="prod-photo${x.foto ? ' has-photo' : ''}" title="Escolher foto">
+          ${x.foto ? `<img src="${esc(x.foto)}" alt="">` : iconeSvg('espelho')}
+          <span>${x.foto ? 'Trocar foto' : 'Foto'}</span>
+        </button>
+        <input type="file" accept="image/*" hidden>
+        <div class="prod-fields">
+          <div class="prod-row">
+            <div class="config-field"><label>Categoria</label><select data-pk="categoria">${cats.map(c => `<option value="${c.id}"${x.categoria === c.id ? ' selected' : ''}>${esc(c.nome)}</option>`).join('')}</select></div>
+            ${CAMPOS_PROD.filter(c => !c.area).map(c => `<div class="config-field"><label>${c.rotulo}</label><input type="text" data-pk="${c.k}"></div>`).join('')}
+          </div>
+          ${CAMPOS_PROD.filter(c => c.area).map(c => `<div class="config-field"><label>${c.rotulo}</label><textarea rows="2" data-pk="${c.k}"></textarea></div>`).join('')}
+        </div>
+        <div class="prod-ctrls">
+          <label class="switch" title="Mostrar no site"><input type="checkbox" data-act="vis"${x.visivel === false ? '' : ' checked'}><span class="slider"></span></label>
+          <button type="button" class="area-btn danger" data-act="del" title="Remover produto">✕</button>
+        </div>
+      </div>`).join('') : '<p class="area-empty">Nenhum produto ainda. Clique em <strong>＋ Adicionar produto</strong> — enquanto a categoria estiver vazia, o site mostra "em breve" com um botão de WhatsApp.</p>';
+
+    box.querySelectorAll('.prod-item').forEach(el => {
+      const x = itens[+el.dataset.i];
+      el.querySelectorAll('[data-pk]').forEach(f => {
+        f.value = x[f.dataset.pk] || (f.tagName === 'SELECT' ? f.value : '');
+        f.addEventListener(f.tagName === 'SELECT' ? 'change' : 'input', () => {
+          x[f.dataset.pk] = f.value.trim();
+          if (f.dataset.pk === 'categoria') renderCategorias();
+          atualizar();
+        });
+      });
+      const arquivo = el.querySelector('input[type="file"]');
+      el.querySelector('.prod-photo').addEventListener('click', () => arquivo.click());
+      arquivo.addEventListener('change', async () => {
+        const f = arquivo.files[0];
+        if (!f || !f.type.startsWith('image/')) return;
+        const dados = await comprimirFoto(f);
+        if (!dados) { status('Não consegui ler essa imagem. Tente outra foto.', 'err'); return; }
+        x.foto = dados;
+        renderProdutos();
+        atualizar();
+      });
+      el.querySelector('[data-act="vis"]').addEventListener('change', e => { x.visivel = e.target.checked; el.classList.toggle('is-off', !x.visivel); atualizar(); });
+      el.querySelector('[data-act="del"]').addEventListener('click', () => {
+        if (!confirm(`Remover o produto "${x.nome || 'sem nome'}"?`)) return;
+        itens.splice(+el.dataset.i, 1);
+        renderProdutos();
+        renderCategorias();
+        atualizar();
+      });
+    });
+  }
+
+  $('stAddProd').addEventListener('click', () => {
+    const cat = edits.produtos.categorias[0];
+    edits.produtos.itens.push({ id: 'p-' + Date.now().toString(36), categoria: cat ? cat.id : 'maquiagem', nome: '', marca: '', preco: '', descricao: '', visivel: true });
+    renderProdutos();
+    renderCategorias();
+    atualizar();
+    const ult = $('stProdList').lastElementChild;
+    if (ult) { ult.scrollIntoView({ behavior: 'smooth', block: 'center' }); const n = ult.querySelector('[data-pk="nome"]'); if (n) n.focus(); }
+    status('✦ Produto adicionado no fim da lista — escolha a foto, preencha e depois salve a prévia ou publique.', 'ok');
+  });
   // ===== RESUMO E PENDÊNCIAS =====
   function telefoneBonito(d) {
     const n = String(d || '').replace(/^55/, '');
@@ -243,7 +362,7 @@
     $('stStats').innerHTML = `
       <div class="stat-card"><span class="stat-value">${vis.length}</span><span class="stat-name">áreas no site</span></div>
       <div class="stat-card"><span class="stat-value">${servicos}</span><span class="stat-name">serviços listados</span></div>
-      <div class="stat-card"><span class="stat-value">${(edits.laser.areas || []).length}</span><span class="stat-name">áreas do laser</span></div>
+      <div class="stat-card"><span class="stat-value">${edits.produtos.itens.filter(x => x.visivel !== false).length}</span><span class="stat-name">produtos no site</span></div>
       <div class="stat-card stat-wide"><span class="stat-value">${esc(telefoneBonito(edits.contato.whatsapp))}</span><span class="stat-name">WhatsApp de agendamento</span></div>`;
     const salvo = JSON.stringify(preview || published);
     const sujo = JSON.stringify(edits) !== salvo;
@@ -264,13 +383,15 @@
     const w = String(edits.contato.whatsapp || '');
     if (w.length < 12 || w.length > 13) return 'Confira o WhatsApp: use 55 + DDD + número, só números (ex.: 5541997117882).';
     if (edits.areas.some(a => !String(a.nome || '').trim())) return 'Toda área precisa de um nome.';
+    if (edits.produtos.itens.some(x => !String(x.nome || '').trim())) return 'Todo produto precisa de um nome (ou remova o que ficou em branco).';
     return '';
   }
 
   $('stPreview').addEventListener('click', () => {
     const erro = validar();
     if (erro) { status(erro, 'err'); return; }
-    localStorage.setItem(PREVIEW_KEY, JSON.stringify(edits));
+    try { localStorage.setItem(PREVIEW_KEY, JSON.stringify(edits)); }
+    catch (e) { status('A prévia ficou grande demais para o navegador (muitas fotos novas). Publique direto, que as fotos vão para o site.', 'err'); return; }
     preview = clone(edits);
     atualizar();
     status('Prévia do Studio salva! Abra o site neste navegador para conferir — os visitantes ainda veem a versão publicada.', 'ok');
@@ -284,6 +405,8 @@
     abertas.clear();
     preencherFixos();
     renderAreas();
+    renderCategorias();
+    renderProdutos();
     atualizar();
     status('Alterações do Studio descartadas.', 'ok');
   });
@@ -305,6 +428,19 @@
     try {
       const headers = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' };
       const url = `https://api.github.com/repos/${REPO}/contents/${DATA_PATH}`;
+      // Fotos novas de produtos: sobem para img/studio/produtos/ e o dado passa a apontar para o arquivo
+      for (const x of edits.produtos.itens) {
+        if (!String(x.foto || '').startsWith('data:')) continue;
+        status(`Enviando a foto de "${x.nome}"…`);
+        const caminho = `img/studio/produtos/${x.id}.jpg`;
+        const uf = `https://api.github.com/repos/${REPO}/contents/${caminho}`;
+        const gf = await fetch(uf, { headers });
+        const corpo = { message: `Painel: foto do produto "${x.nome}"`, content: x.foto.split(',')[1] };
+        if (gf.ok) corpo.sha = (await gf.json()).sha;
+        const pf = await fetch(uf, { method: 'PUT', headers, body: JSON.stringify(corpo) });
+        if (!pf.ok) throw new Error(`Erro ao enviar a foto de "${x.nome}" (HTTP ${pf.status}).`);
+        x.foto = caminho;
+      }
       status('Enviando o Studio para o site…');
       const g = await fetch(url, { headers });
       if (g.status === 401) throw new Error('Token inválido ou sem permissão.');
@@ -325,6 +461,7 @@
       localStorage.removeItem(PREVIEW_KEY);
       preview = null;
       published = clone(edits);
+      renderProdutos();
       atualizar();
       status('✦ Studio publicado! Em cerca de 1 a 2 minutos o site já abre com as alterações.', 'ok');
     } catch (err) {
@@ -337,5 +474,7 @@
 
   preencherFixos();
   renderAreas();
+  renderCategorias();
+  renderProdutos();
   atualizar();
 })();
