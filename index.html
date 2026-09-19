@@ -392,26 +392,36 @@
         </div>
     </section>
 
-    <!-- JOIAS: botão para o catálogo -->
+    <!-- JOIAS PARCEIRAS: vitrine dos lançamentos do catálogo -->
     <section class="joias-section" id="joias">
         <div class="container">
-            <a href="joias.html" class="joias-banner reveal">
-                <div class="joias-images">
-                    <div><img src="imagens/categoria-brincos.jpg" alt="Brinco argola dourado com coração de zircônia" loading="lazy"></div>
-                    <div><img src="imagens/categoria-aneis.jpg" alt="Anel dourado trançado cravejado" loading="lazy"></div>
-                    <div><img src="imagens/categoria-pulseiras.jpg" alt="Pulseira dourada com corações entrelaçados" loading="lazy"></div>
-                    <div><img src="imagens/categoria-colares.jpg" alt="Colar dourado com pingente solitário" loading="lazy"></div>
+            <div class="partner-head reveal">
+                <div class="partner-intro">
+                    <div class="section-label">Parceria Studio Miura</div>
+                    <h2 class="section-title" id="joiasTitle">Joias <em>parceiras</em></h2>
+                    <p class="partner-text" id="joiasText">Para completar o seu momento de cuidado, a <strong>JS Joias Delicadas</strong> é parceira do Studio: semi-joias banhadas a ouro 18k e prata, antialérgicas e com 1 ano de garantia.</p>
                 </div>
-                <div class="joias-content">
-                    <div class="section-label">Também no Studio</div>
-                    <h2 class="section-title">Catálogo de <em>Joias</em></h2>
-                    <p>Para completar o seu momento de cuidado: semi-joias delicadas banhadas a ouro 18k e prata, com pronta-entrega.</p>
-                    <ul class="joias-perks">
-                        <li>Antialérgicas</li><li>1 ano de garantia</li><li>Peças únicas</li>
-                    </ul>
-                    <span class="btn btn-marsala">Ver Catálogo de Joias →</span>
+                <div class="partner-lockup" aria-hidden="true">
+                    <span class="pl-brand">JS Joias<small>Delicadas</small></span>
+                    <span class="pl-x">×</span>
+                    <img src="img/studio/logo-miura.png" alt="" class="pl-logo" width="906" height="286">
                 </div>
-            </a>
+            </div>
+
+            <div class="partner-strip-head reveal">
+                <span class="partner-strip-label" id="joiasStripLabel">✦ Destaques da coleção</span>
+                <a href="joias.html" class="partner-strip-link" id="joiasStripLink">Ver todas →</a>
+            </div>
+            <div class="partner-grid reveal" id="joiasGrid">
+                <a href="joias.html" class="partner-card"><div class="pc-img"><img src="imagens/categoria-brincos.jpg" alt="Brincos" loading="lazy"></div><div class="pc-info"><span class="pc-tag">Coleção</span><h3>Brincos</h3></div></a>
+                <a href="joias.html" class="partner-card"><div class="pc-img"><img src="imagens/categoria-aneis.jpg" alt="Anéis" loading="lazy"></div><div class="pc-info"><span class="pc-tag">Coleção</span><h3>Anéis</h3></div></a>
+                <a href="joias.html" class="partner-card"><div class="pc-img"><img src="imagens/categoria-pulseiras.jpg" alt="Pulseiras" loading="lazy"></div><div class="pc-info"><span class="pc-tag">Coleção</span><h3>Pulseiras</h3></div></a>
+                <a href="joias.html" class="partner-card"><div class="pc-img"><img src="imagens/categoria-colares.jpg" alt="Colares" loading="lazy"></div><div class="pc-info"><span class="pc-tag">Coleção</span><h3>Colares</h3></div></a>
+            </div>
+            <div class="partner-ctas reveal">
+                <a href="joias.html#lancamentos" class="btn btn-marsala" id="joiasCta">Ver Lançamentos</a>
+                <a href="joias.html" class="btn btn-outline">Catálogo Completo</a>
+            </div>
         </div>
     </section>
     </main>
@@ -474,6 +484,8 @@
         <span class="wa-tooltip">Agendar no Studio ✦</span>
     </a>
 
+    <script src="data/catalogo-auto.js"></script>
+    <script src="data/produtos.js"></script>
     <script src="data/studio.js"></script>
     <script src="studio-icones.js"></script>
     <script src="studio-app.js"></script>

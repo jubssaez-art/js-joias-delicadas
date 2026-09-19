@@ -147,6 +147,8 @@ window.STUDIO = {
     "mensagem": "Olá! Gostaria de agendar uma avaliação para depilação a laser."
   },
   "joias": {
-    "visivel": true
+    "visivel": true,
+    "titulo": "Joias *parceiras*",
+    "texto": "Para completar o seu momento de cuidado, a **JS Joias Delicadas** é parceira do Studio: semi-joias banhadas a ouro 18k e prata, antialérgicas e com 1 ano de garantia."
   }
 };

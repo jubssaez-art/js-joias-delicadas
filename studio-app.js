@@ -167,8 +167,13 @@
       }
     }
 
-    // Banner do catálogo de joias
-    if ($('joias') && S.joias) $('joias').hidden = S.joias.visivel === false;
+    // Joias parceiras
+    if ($('joias') && S.joias) {
+      $('joias').hidden = S.joias.visivel === false;
+      if (S.joias.titulo) $('joiasTitle').innerHTML = fmt(S.joias.titulo);
+      if (S.joias.texto) $('joiasText').innerHTML = fmt(S.joias.texto);
+      if (S.joias.visivel !== false) vitrineDeJoias();
+    }
 
     // Rodapé
     if ($('footerServices')) {
@@ -198,6 +203,71 @@
     }
 
     if (emPrevia) avisoDePrevia();
+  }
+
+  /* Vitrine das joias: mesmos dados e mesma regra de "lançamento" do catálogo
+     (script.js). Sem lançamento marcado, mostra uma peça de cada tipo à venda
+     para a seção nunca ficar vazia. */
+  function vitrineDeJoias() {
+    var auto = window.PRODUCTS_AUTO || [];
+    var estado = {
+      overrides: window.PRODUCTS_OVERRIDE || {},
+      extras: window.PRODUCTS_EXTRA || []
+    };
+    try {
+      var pj = JSON.parse(localStorage.getItem('js_joias_override_preview') || 'null');
+      if (pj && (pj.overrides || pj.extras)) estado = { overrides: pj.overrides || {}, extras: pj.extras || [] };
+    } catch (e) { /* segue com o publicado */ }
+
+    var pecas = auto.map(function (p) {
+      var o = estado.overrides[p.id] || {};
+      if (o.hidden) return null;
+      var q = {};
+      for (var k in p) q[k] = p[k];
+      ['name', 'badge'].forEach(function (k) { if (typeof o[k] === 'string' && o[k].trim()) q[k] = o[k].trim(); });
+      if (typeof o.badge === 'string' && !o.badge.trim()) delete q.badge;
+      if (typeof o.price === 'number' && o.price > 0) q.price = o.price;
+      if (typeof o.soldOut === 'boolean') q.soldOut = o.soldOut;
+      if (typeof o.lancamento === 'boolean') q.lancamento = o.lancamento;
+      return q;
+    }).filter(Boolean);
+    var extras = estado.extras.filter(function (x) { return x && !x.hidden && String(x.image || '').indexOf('data:') !== 0; })
+      .map(function (x) { var q = {}; for (var k in x) q[k] = x[k]; q.lancamento = x.lancamento !== false; return q; });
+    pecas = extras.concat(pecas).filter(function (p) { return !p.soldOut && p.image; });
+
+    function eLancamento(p) {
+      if (typeof p.lancamento === 'boolean') return p.lancamento;
+      return /novidade|lan[cç]amento|\bnovo\b/i.test(p.badge || '');
+    }
+    var lancs = pecas.filter(eLancamento);
+    var mostrar, temLanc = lancs.length > 0;
+    if (temLanc) {
+      mostrar = lancs.slice(0, 4);
+    } else {
+      var vistos = {};
+      mostrar = pecas.filter(function (p) {
+        var tipo = String(p.tag || '').split('·')[0].trim();
+        if (vistos[tipo]) return false;
+        vistos[tipo] = true;
+        return true;
+      }).slice(0, 4);
+    }
+    if (!mostrar.length) return;   // fica a vitrine escrita no HTML
+
+    function preco(v) { return 'R$ ' + Number(v).toFixed(2).replace('.', ','); }
+    $('joiasGrid').innerHTML = mostrar.map(function (p) {
+      return '<a href="produto.html?id=' + encodeURIComponent(p.id) + '" class="partner-card">' +
+        '<div class="pc-img"><img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy">' +
+        (temLanc ? '<span class="pc-badge">Lançamento</span>' : '') + '</div>' +
+        '<div class="pc-info"><span class="pc-tag">' + esc(p.tag || '') + '</span><h3>' + esc(p.name) + '</h3>' +
+        '<span class="pc-price">' + preco(p.price) + '</span></div></a>';
+    }).join('');
+    $('joiasGrid').style.setProperty('--n', mostrar.length);
+    $('joiasStripLabel').textContent = temLanc ? '✦ Lançamentos' : '✦ Destaques da coleção';
+    $('joiasStripLink').href = temLanc ? 'joias.html#lancamentos' : 'joias.html';
+    $('joiasStripLink').textContent = temLanc ? 'Ver todos os lançamentos →' : 'Ver todas →';
+    $('joiasCta').href = temLanc ? 'joias.html#lancamentos' : 'joias.html';
+    $('joiasCta').textContent = temLanc ? 'Ver Lançamentos' : 'Ver as Joias';
   }
 
   function avisoDePrevia() {
