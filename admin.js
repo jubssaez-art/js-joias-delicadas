@@ -11,7 +11,7 @@
   const SESSION_KEY = 'js_joias_admin_session';
   const PREVIEW_KEY = 'js_joias_override_preview';
   const TOKEN_KEY = 'js_joias_gh_token';
-  const REPO = 'SolarisSy/js-joias-delicadas';
+  const REPO = 'jubssaez-art/js-joias-delicadas';
   const OVERRIDE_PATH = 'data/produtos.js';
 
   const loginEl = document.getElementById('adminLogin');

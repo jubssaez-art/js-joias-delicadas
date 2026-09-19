@@ -70,7 +70,7 @@ Toda peça publicada entra também no feed de dados do Commerce Manager, refeito
 cada deploy:
 
 ```
-https://solarissy.github.io/js-joias-delicadas/feed.xml
+https://jubssaez-art.github.io/js-joias-delicadas/feed.xml
 ```
 
 No Commerce Manager: **Catálogo → Fontes de dados → Feed de dados → Buscar por URL

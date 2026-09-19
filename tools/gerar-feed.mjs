@@ -14,7 +14,7 @@
    No Commerce Manager: Catálogo → Fontes de dados → Feed de dados
    → agendar busca por URL, apontando para
 
-     https://solarissy.github.io/js-joias-delicadas/feed.xml
+     https://jubssaez-art.github.io/js-joias-delicadas/feed.xml
 
    Rode tools/gerar-catalogo.mjs antes: o feed lê o catálogo já
    gerado, então nenhuma regra de nome de arquivo vive aqui.

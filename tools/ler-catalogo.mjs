@@ -63,6 +63,6 @@ export function lerCatalogo() {
 // "Anéis · Ouro 18k" → seção da loja, que vira o product_type do anúncio
 export const secaoDe = (p) => String(p.tag || '').split('·')[0].trim() || 'Semi-joias';
 
-export const SITE = (process.env.SITE_URL || 'https://solarissy.github.io/js-joias-delicadas/').replace(/\/?$/, '/');
+export const SITE = (process.env.SITE_URL || 'https://jubssaez-art.github.io/js-joias-delicadas/').replace(/\/?$/, '/');
 export const LOJA = 'JS Joias Delicadas';
 export const url = (caminho) => SITE + String(caminho).replace(/^\//, '');

@@ -3,519 +3,519 @@
      Recriar: node tools/gerar-sitemap.mjs -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/joias.html</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/joias.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-com-pedra-preta</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-com-pedra-preta</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-coracao-cravejado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-coracao-cravejado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-coracao-de-pedras-azuis</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-coracao-de-pedras-azuis</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-cruz-cravejada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-cruz-cravejada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-duas-estrelas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-duas-estrelas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-estrela-do-mar</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-estrela-do-mar</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-fileira-de-pedras-negras</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-fileira-de-pedras-negras</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-flor</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-flor</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-infinito-com-coracao</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-infinito-com-coracao</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-meia-alianca-rosa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-meia-alianca-rosa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-no</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-no</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-pedras-coloridas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-pedras-coloridas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-trevo-texturizado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-trevo-texturizado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-trevo-vazado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-dourado-trevo-vazado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-abaulado-diamantado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-abaulado-diamantado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-alianca-dupla-cravejada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-alianca-dupla-cravejada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-coracao-cravejado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-coracao-cravejado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-coracao-de-cristais</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-coracao-de-cristais</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-coracao-liso</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-coracao-liso</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-cravejado-abaulado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-cravejado-abaulado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-fileira-de-pedras-ovais</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-fileira-de-pedras-ovais</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-lua-crescente</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-lua-crescente</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-solitario-rosa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-anel-prata-solitario-rosa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-cravejada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-cravejada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-diamantada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-diamantada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-elo-torcido</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-elo-torcido</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-lisa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-lisa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-trancada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-trancada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-trilha-de-cristais</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-dourada-trilha-de-cristais</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-prata-cristais-baguete</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-prata-cristais-baguete</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-prata-texturizada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-prata-texturizada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-prata-torcida</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-prata-torcida</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-argola-prata-trancada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-argola-prata-trancada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-bracelete-prata-liso</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-bracelete-prata-liso</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-argolinha-coracao-de-cristal</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-argolinha-coracao-de-cristal</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-argolinha-cristais-baguete</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-argolinha-cristais-baguete</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-barra</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-barra</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-bolinha-diamantada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-bolinha-diamantada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-botao-de-madreperola</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-botao-de-madreperola</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-concha</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-concha</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-coqueiro</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-coqueiro</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-coracao-de-madreperola</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-coracao-de-madreperola</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-coracao-vazado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-coracao-vazado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-disco-texturizado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-disco-texturizado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-escalada-de-coracoes</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-escalada-de-coracoes</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-flor-com-pedra-roxa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-flor-com-pedra-roxa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-flor-de-cristais</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-flor-de-cristais</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-flor-de-perolas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-flor-de-perolas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-kit-argolinhas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-kit-argolinhas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-laco-com-pedra-azul</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-laco-com-pedra-azul</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-ponto-de-luz-azul</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-ponto-de-luz-azul</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-quadrado-de-madreperola</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-quadrado-de-madreperola</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-quadrado-e-circulo-com-pedra-roxa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-quadrado-e-circulo-com-pedra-roxa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-quadrado-preto</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-quadrado-preto</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-quadrado-vazado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-dourado-quadrado-vazado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argola-coracao-vazado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argola-coracao-vazado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argola-de-fios</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argola-de-fios</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argolinha-com-ponto-de-luz</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argolinha-com-ponto-de-luz</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argolinha-coracao</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argolinha-coracao</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argolinha-facetada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argolinha-facetada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argolinha-v-cravejada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-argolinha-v-cravejada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-barra-torcida</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-barra-torcida</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-bolinha</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-bolinha</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-circulo-de-perolas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-circulo-de-perolas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-coracao-com-perola</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-coracao-com-perola</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-coracao-vazado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-coracao-vazado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-cristais-baguete</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-cristais-baguete</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-cruz-cravejada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-cruz-cravejada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-espiral-cravejada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-espiral-cravejada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-gota-azul</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-gota-azul</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-gota-de-cristal</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-gota-de-cristal</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-gota-rosa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-gota-rosa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-kit-argolinhas-abauladas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-kit-argolinhas-abauladas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-lua-martelada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-lua-martelada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-navete-com-pedra-rosa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-navete-com-pedra-rosa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ovais-escovados</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ovais-escovados</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-patinha</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-patinha</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-perola-botao</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-perola-botao</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-perola-cravejada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-perola-cravejada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-perola-pendente</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-perola-pendente</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-pomba</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-pomba</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz-champanhe</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz-champanhe</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz-coroa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz-coroa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz-preto</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz-preto</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz-vermelho</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz-vermelho</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-ponto-de-luz</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-quadrado-vazado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-quadrado-vazado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-trevo-preto</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-brinco-prata-trevo-preto</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-bolinhas-marteladas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-bolinhas-marteladas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-coracao-vazado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-coracao-vazado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-flor-de-cristais-baguete</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-flor-de-cristais-baguete</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-laco-de-cristais</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-laco-de-cristais</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-libelula</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-libelula</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-lua-cravejada</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-lua-cravejada</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-nossa-senhora-aparecida</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-nossa-senhora-aparecida</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-pingente-olho-grego</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-pingente-olho-grego</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-trevo-verde</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-dourado-trevo-verde</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-arvore-da-vida</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-arvore-da-vida</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-borboletas-e-flores</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-borboletas-e-flores</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-chuveiro-de-perolas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-chuveiro-de-perolas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-chuveiro-verde</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-chuveiro-verde</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-coracao-cravejado</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-coracao-cravejado</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-coracao-de-filigrana</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-coracao-de-filigrana</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-coracao-liso</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-coracao-liso</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-cordao-baiano</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-cordao-baiano</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-medalhas-e-cristais</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-medalhas-e-cristais</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-medalhas-estrela</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-medalhas-estrela</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-pedras-coloridas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-colar-prata-pedras-coloridas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-conjunto-prata-arvore-da-vida</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-conjunto-prata-arvore-da-vida</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-conjunto-prata-pedra-rosa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-conjunto-prata-pedra-rosa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-piercing-dourado-pedras-coloridas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-piercing-dourado-pedras-coloridas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-cristais-ovais</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-cristais-ovais</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-elos-com-ponto-de-luz</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-elos-com-ponto-de-luz</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-gotas-de-cristal</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-gotas-de-cristal</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-medalhas-e-navetes</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-medalhas-e-navetes</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-medalhas-lisas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-medalhas-lisas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-medalhas-marteladas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-medalhas-marteladas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-perolas-com-borboleta</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-perolas-com-borboleta</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-riviera-vermelha</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-dourada-riviera-vermelha</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-cristais-baguete</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-cristais-baguete</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-elos-com-bolinhas</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-elos-com-bolinhas</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-elos-com-coracoes</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-elos-com-coracoes</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-elos-losango</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-elos-losango</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-elos-ovais</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-elos-ovais</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-gotas-rosa</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-gotas-rosa</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-grega</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-grega</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solarissy.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-riviera-vermelha</loc>
+    <loc>https://jubssaez-art.github.io/js-joias-delicadas/produto.html?id=auto-pulseira-prata-riviera-vermelha</loc>
     <priority>0.8</priority>
   </url>
 </urlset>

@@ -45,7 +45,7 @@ writeFileSync(join(RAIZ, 'sitemap.xml'), xml);
 const base = new URL(SITE).pathname;
 
 // Só a raiz do domínio é lida pelos robôs. Enquanto o site morar em
-// solarissy.github.io/js-joias-delicadas/ este arquivo é ignorado — vale a
+// jubssaez-art.github.io/js-joias-delicadas/ este arquivo é ignorado — vale a
 // partir do domínio próprio. O sitemap, esse, dá para enviar à mão no
 // Search Console e funciona hoje.
 writeFileSync(join(RAIZ, 'robots.txt'),

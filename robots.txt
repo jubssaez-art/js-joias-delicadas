@@ -6,4 +6,4 @@ Disallow: /js-joias-delicadas/marketplace.html
 Disallow: /js-joias-delicadas/pinterest.html
 Disallow: /js-joias-delicadas/acesso/
 
-Sitemap: https://solarissy.github.io/js-joias-delicadas/sitemap.xml
+Sitemap: https://jubssaez-art.github.io/js-joias-delicadas/sitemap.xml

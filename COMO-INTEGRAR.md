@@ -22,9 +22,9 @@ Nenhum canal desta página cobra mensalidade. O que o deploy já entrega pronto:
 
 URLs públicas (trocar o endereço quando o domínio próprio entrar):
 
-- Feed: <https://solarissy.github.io/js-joias-delicadas/feed.xml>
-- Planilha: <https://solarissy.github.io/js-joias-delicadas/catalogo.csv>
-- Sitemap: <https://solarissy.github.io/js-joias-delicadas/sitemap.xml>
+- Feed: <https://jubssaez-art.github.io/js-joias-delicadas/feed.xml>
+- Planilha: <https://jubssaez-art.github.io/js-joias-delicadas/catalogo.csv>
+- Sitemap: <https://jubssaez-art.github.io/js-joias-delicadas/sitemap.xml>
 
 ---
 
@@ -66,7 +66,7 @@ Caminho: **Marketplace → Criar anúncio → Item à venda**
 | Localização | sua cidade; o raio de busca do comprador é local |
 | Mais opções | marque **anunciar como estoque** (não some após a 1ª venda) |
 
-A página **marketplace.html** (<https://solarissy.github.io/js-joias-delicadas/marketplace.html>)
+A página **marketplace.html** (<https://jubssaez-art.github.io/js-joias-delicadas/marketplace.html>)
 é o balcão dessa postagem: as 127 peças com foto para baixar, título dentro do limite,
 descrição para copiar, filtro por seção e marcação do que já foi publicado. Ela é gerada
 pelo deploy (`node tools/gerar-marketplace.mjs`) e fica fora do sitemap.
@@ -138,7 +138,7 @@ Exige verificar e reivindicar o site (Search Console) e ter no site: política d
 prazo de entrega e forma de contato — todos já existem no rodapé.
 
 Sem domínio próprio, verifique no Search Console como **prefixo de URL**
-(`https://solarissy.github.io/js-joias-delicadas/`), pela meta tag do `index.html`, e
+(`https://jubssaez-art.github.io/js-joias-delicadas/`), pela meta tag do `index.html`, e
 envie o `sitemap.xml` na mesma tela. Domínio inteiro (`Domain property`) não dá: exige
 DNS, que é do GitHub.
 
