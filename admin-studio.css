@@ -1,0 +1,132 @@
+/* ===========================
+   PAINEL — TEMA STUDIO MIURA
+   Carregado depois do style.css só no admin.html: redefine as variáveis
+   da loja com a paleta do Studio (marsala e creme envelhecido), então o
+   catálogo público continua com as cores dele.
+   =========================== */
+
+.admin-body {
+  --gold: #8c3b43;
+  --gold-light: #d9b3ae;
+  --gold-dark: #6b2a31;
+  --cream: #f3eadb;
+  --cream-warm: #ece0cc;
+  --nude: #e0ccb8;
+  --rose: #d9b3ae;
+  --rose-light: #f5ebe6;
+  --dark: #3e171c;
+  --text: #4a2c2e;
+  --text-light: #7d5e5a;
+  --border: #e0cfb8;
+  --white: #fffdf9;
+  --shadow: 0 4px 30px rgba(62,23,28,0.08);
+  --shadow-hover: 0 12px 50px rgba(62,23,28,0.16);
+  background: var(--cream);
+}
+
+/* Botões: sombra em marsala no lugar do dourado */
+.admin-body .btn-gold { box-shadow: 0 4px 20px rgba(140,59,67,0.3); }
+.admin-body .btn-gold:hover { box-shadow: 0 8px 30px rgba(140,59,67,0.4); }
+
+/* Foco dos campos */
+.admin-body .login-card input:focus,
+.admin-body .admin-table input[type="text"]:focus,
+.admin-body .config-field input:focus,
+.admin-body .config-field select:focus,
+.admin-body .config-field textarea:focus,
+.admin-body .token-row input:focus { box-shadow: 0 0 0 3px rgba(140,59,67,0.14); }
+.admin-body .admin-actions-bar.dirty { box-shadow: 0 0 0 3px rgba(140,59,67,0.12); }
+
+/* ---------- Login: foto do site com véu marsala, como a capa do Studio ---------- */
+.admin-body .admin-login {
+  position: relative;
+  background:
+    linear-gradient(to top, rgba(62,23,28,0.92) 0%, rgba(107,42,49,0.66) 50%, rgba(107,42,49,0.45) 100%),
+    url('img/hero_banner.png') center / cover no-repeat,
+    var(--dark);
+}
+.admin-body .login-card {
+  background: rgba(255,253,249,0.97);
+  border-color: rgba(224,207,184,0.6);
+  box-shadow: 0 24px 70px rgba(30,8,12,0.4);
+}
+.login-logo { width: 230px; height: auto; margin: 0 auto 6px; }
+.admin-body .login-sub { color: var(--gold); margin-top: 10px; }
+.admin-body .login-back { display: block; }
+.admin-body .login-back + .login-back { margin-top: 10px; }
+
+/* ---------- Cabeçalho do painel ---------- */
+.admin-body .admin-header {
+  background: rgba(243,234,219,0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.admin-logo { height: 46px; width: auto; }
+.admin-body .admin-brand { gap: 16px; }
+.admin-body .admin-brand-sub {
+  padding-left: 16px;
+  border-left: 1px solid var(--border);
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--gold);
+}
+.admin-body .admin-brand-sub strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  color: var(--dark);
+}
+
+/* Faixa de boas-vindas acima dos números */
+.admin-welcome {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  padding: 30px 34px;
+  margin-bottom: 24px;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(243,234,219,0.14) 0%, transparent 55%),
+    linear-gradient(135deg, #8c3b43 0%, #3e171c 100%);
+}
+.admin-welcome::after {
+  content: '';
+  position: absolute;
+  right: -30px;
+  bottom: -50px;
+  width: 190px;
+  height: 240px;
+  background: url('img/studio/simbolo-creme.png') center / contain no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.admin-welcome p:first-child {
+  font-size: 10.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d9b3ae;
+  margin-bottom: 6px;
+}
+.admin-welcome h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+.admin-welcome h1 em { color: #e0ccb8; }
+.admin-welcome p:last-child { font-size: 14px; color: rgba(243,234,219,0.78); max-width: 560px; }
+
+/* Janela de nova peça */
+.admin-body .admin-modal-backdrop { background: rgba(42,12,17,0.6); }
+.admin-body .admin-modal-card { box-shadow: 0 24px 60px rgba(42,12,17,0.35); }
+
+@media (max-width: 640px) {
+  .admin-logo { height: 36px; }
+  .admin-body .admin-brand-sub { display: none; }
+  .admin-welcome { padding: 24px 22px; }
+  .login-logo { width: 190px; }
+}
