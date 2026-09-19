@@ -1617,3 +1617,6 @@ button:focus-visible {
 /* Catálogo de serviços: só as abas de filtro e o quadro da área, sem os cartões */
 .svc-grid { display: none; }
 .svc-pane-head { margin-bottom: 0; }
+/* Quadro da área também oculto: fica só a barra de abas */
+#svcPanes { display: none; }
+#svcCatalog .cat-tabs { margin-bottom: 0; }
